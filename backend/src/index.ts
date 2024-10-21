@@ -1,0 +1,28 @@
+import express, { Application } from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import routes from './routes/routes';
+import connectDB from './utils/connectDB';
+
+// Load environment variables from .env file
+dotenv.config();
+
+const app: Application = express();
+const PORT = process.env.PORT || 8084;
+
+// Middleware
+app.use(express.json({ limit: '50mb' }));
+app.use(cors());
+
+// Routes
+app.use('/', routes);
+
+// Connect to the database and start the server
+const mongoURI = process.env.MONGO_URI as string;
+connectDB(mongoURI).then(() => {
+    app.listen(PORT, () => {
+        console.log(`Server is running on port: ${PORT}`);
+    });
+}).catch((error: Error) => {
+    console.error('Error connecting to the database:', error);
+});
