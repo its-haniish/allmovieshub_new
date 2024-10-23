@@ -2,13 +2,29 @@
 import Navbar from '@/components/Navbar'
 import React, { useState } from 'react'
 import Header from '@/components/Header'
+import useMobile from "@/hooks/useMobile"
 
 const Home: React.FC = () => {
+  const isMobile = useMobile();
   return (
     <>
-      <Navbar />
-      <Header />
-      <div>page</div>
+      {
+        isMobile ?
+          <>
+            <Navbar />
+            <Header />
+            <div>page</div>
+          </>
+          :
+          <main style={{
+            background: url('/bg.webp')
+          }}>
+            <Navbar />
+            <Header />
+            <div>page</div>
+          </main>
+      }
+
     </>
   )
 }
