@@ -19,7 +19,8 @@ const Home: React.FC = () => {
           :
           <main style={{
             background: "url('/bg.webp')",
-          }} className='w-screen h-screen flex justify-center items-start'>
+            backgroundRepeat: "repeat",
+          }} className='w-screen h-fit flex justify-center items-start'>
 
             <main className='w-[55vw]'>
 
@@ -32,11 +33,11 @@ const Home: React.FC = () => {
                   <div key={index} className='flex flex-col justify-center items-start gap-3 w-full overflow-hidden h-fit'>
                     <div className="border-4 rounded-lg cursor-pointer" style={{ borderImage: "linear-gradient(to right, orange, green) 1;" }}>
                       <Image
-                        src="/poster.webp" // Path to your image
-                        alt="Logo"     // Description for accessibility
-                        width={180}    // Desired width
-                        height={100}   // Desired height
-                        layout="responsive" // This ensures the aspect ratio is maintained
+                        src="/poster.webp"
+                        alt="Logo"
+                        width={180}
+                        height={100}
+                        layout="responsive"
                       />
                     </div>
                     <a href="#" className='w-[175px] text-[0.8rem] text-center hover:text-red-600'>
