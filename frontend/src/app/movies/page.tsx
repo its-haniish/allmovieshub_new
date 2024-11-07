@@ -13,7 +13,7 @@ import Link from 'next/link'
 const Home: React.FC = () => {
   const isMobile = useMobile();
   const searchParams = useSearchParams();
-  const [page] = useState<number>(1);
+  const [page, setPage] = useState<number>(1);
   const [movies, setMovies] = useState<MovieCard[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -35,6 +35,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     const currentPage = searchParams.get('page') ? parseInt(searchParams.get('page') as string) : 1;
     fetchMovies(currentPage);
+    setPage(currentPage);
   }, [searchParams]);
 
   return (
