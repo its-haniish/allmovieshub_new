@@ -55,7 +55,7 @@ const Home: React.FC = () => {
               ) : (
                 movies.map((movie) => (
                   <div key={movie._id} className="flex flex-col justify-center items-center gap-3 w-full overflow-hidden h-fit">
-                    <div className="border-4 rounded-lg cursor-pointer" style={{ borderImage: "linear-gradient(to right, orange, green) 1;" }}>
+                    <div className="border-4 rounded-lg cursor-pointer" style={{ borderImage: "linear-gradient(to right, orange, green)" }}>
                       <div className="w-full" style={{ position: 'relative', height: 'auto' }}>
                         <Image
                           src={movie.featuredImage}
@@ -110,7 +110,7 @@ const Home: React.FC = () => {
                     :
                     movies.map((movie) => (
                       <div key={movie._id} className='flex flex-col justify-center items-start gap-3 w-full overflow-hidden h-fit'>
-                        <div className="border-4 rounded-lg cursor-pointer" style={{ borderImage: "linear-gradient(to right, orange, green) 1;" }}>
+                        <div className="border-4 rounded-lg cursor-pointer" style={{ borderImage: "linear-gradient(to right, orange, green) " }}>
                           <Image
                             src={movie.featuredImage}
                             alt="Logo"
