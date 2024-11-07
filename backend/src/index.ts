@@ -17,6 +17,11 @@ app.use(cors());
 // Routes
 app.use('/', routes);
 
+//test api
+app.get('/status', (req, res) => {
+    res.send('Server is running...');
+});
+
 // Connect to the database and start the server
 const mongoURI = process.env.MONGO_URI as string;
 connectDB(mongoURI).then(() => {
