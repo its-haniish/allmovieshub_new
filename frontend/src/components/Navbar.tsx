@@ -3,6 +3,7 @@ import useMobile from '@/hooks/useMobile'
 import { HiMenu, HiSearch } from "react-icons/hi";
 import Image from 'next/image';
 import { motion } from 'framer-motion'
+import Link from 'next/link';
 
 
 const Navbar: React.FC = () => {
@@ -28,12 +29,14 @@ const Navbar: React.FC = () => {
 
                             <HiMenu size={30} color='white' className='p-1 border border-white' />
 
-                            <Image
-                                src="/horizontal_logo.jpg" // Path to your image
-                                alt="Logo"             // Description for accessibility
-                                width={140}             // Desired size with correct aspect ratio
-                                height={45}             // Desired size with correct aspect ratio
-                            />
+                            <Link href="/" passHref>
+                                <Image
+                                    src="/horizontal_logo.jpg"  // Path to your image
+                                    alt="Logo"                  // Description for accessibility
+                                    width={140}                  // Desired width
+                                    height={45}                  // Desired height
+                                />
+                            </Link>
 
                             <HiSearch size={30} color='white' onClick={() => setShowSearch(!showSearch)} />
 
@@ -65,12 +68,14 @@ const Navbar: React.FC = () => {
 
                     <nav>
                         <div className='flex justify-center items-center py-3 bg-[#111111]'>
-                            <Image
-                                src="/horizontal_logo.jpg" // Path to your image
-                                alt="Logo"             // Description for accessibility
-                                width={180}             // Desired size with correct aspect ratio
-                                height={85}             // Desired size with correct aspect ratio
-                            />
+                            <Link href="/" passHref>
+                                <Image
+                                    src="/horizontal_logo.jpg"  // Path to your image
+                                    alt="Logo"                  // Description for accessibility
+                                    width={180}                  // Desired width
+                                    height={85}                  // Desired height
+                                />
+                            </Link>
                         </div>
                         <div className='bg-[#13736D] flex items-center justify-between h-fit'>
                             <a href="#" className='text-[0.8rem] py-2 px-1 hover:bg-[#116862]' >HOME</a>

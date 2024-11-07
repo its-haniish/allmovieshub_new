@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createBlog, getBlogBySlug, updateBlog, deleteBlog, getAllBlogs, getAllSlugsAndTitles } from '../controllers/blogController'; // Import all relevant controllers
+import { createBlog, getBlogBySlug, updateBlog, deleteBlog, getAllBlogs, getMovieCards } from '../controllers/blogController'; // Import all relevant controllers
 
 const router = Router();
 
@@ -19,7 +19,7 @@ router.post('/delete', deleteBlog);
 router.post('/fetch-all', getAllBlogs);
 
 // Route to fetch all slugs and titles
-router.post('/fetch-slugs-titles', getAllSlugsAndTitles);
+router.get('/movies', getMovieCards);
 
 // Export the router to use in your app
 export default router;

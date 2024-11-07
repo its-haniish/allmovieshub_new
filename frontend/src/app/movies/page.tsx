@@ -12,7 +12,6 @@ import { useSearchParams } from 'next/navigation'
 const Home: React.FC = () => {
   const isMobile = useMobile();
   const searchParams = useSearchParams();
-  const [page] = useState<number>(1);
   const [movies, setMovies] = useState<MovieCard[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -89,7 +88,7 @@ const Home: React.FC = () => {
                             layout="responsive"
                           />
                         </div>
-                        <a href={movie.slug} className='w-[175px] text-[0.8rem] text-center hover:text-red-600'>
+                        <a href={"/"} className='w-[175px] text-[0.8rem] text-center hover:text-red-600'>
                           {movie.title}
                         </a>
                       </div>
@@ -100,7 +99,7 @@ const Home: React.FC = () => {
 
               {/* pagination bar */}
               <section className='w-[55vw] gap-3 bg-[#111111] pt-6 h-fit p-3 pb-6 flex justify-center items-center'>
-                <PaginationBar page={page} />
+                <PaginationBar page={searchParams.get('page') ? parseInt(searchParams.get('page') as string) : 1} />
               </section>
             </main>
 

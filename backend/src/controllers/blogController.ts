@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import Blogs from '../models/Blogs'; // Adjust the path to your Blogs model accordingly
+import { Posts } from '../models/Posts';
 
 // Function to create a new blog entry
 export const createBlog = async (req: Request, res: Response): Promise<void> => {
@@ -113,15 +114,23 @@ export const getAllBlogs = async (req: Request, res: Response): Promise<void> =>
 };
 
 
-// Function to get all slugs and titles of blogs
-export const getAllSlugsAndTitles = async (req: Request, res: Response): Promise<void> => {
+// Function to get all slugs, titles, and featured images of blogs with pagination
+export const getMovieCards = async (req: Request, res: Response): Promise<void> => {
     try {
-        // Fetch all blogs and select only slug and title
-        const blogs = await Blogs.find({}, 'slug title').sort({ createdAt: -1 }) // Sort by time, latest first
+        // Get the page number from query parameters or default to 1
+        const page = parseInt(req.query.page as string, 10) || 1;
+        const limit = 20;
+        const skip = (page - 1) * limit;
 
-        res.status(200).json(blogs);
+        // Fetch blogs with pagination and select only slug, title, and featuredImage fields
+        const posts = await Posts.find({}, 'slug title featuredImage')
+            .sort({ createdAt: -1 }) // Sort by creation time, latest first
+            .skip(skip)
+            .limit(limit);
+
+        res.status(200).json(posts);
     } catch (error) {
         console.error('Error fetching slugs and titles:', error);
         res.status(500).json({ message: 'Failed to fetch slugs and titles', error });
     }
-}
+};
