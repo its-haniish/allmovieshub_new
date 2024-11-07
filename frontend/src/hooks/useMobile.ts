@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useLayoutEffect } from 'react';
 
 // Hook to detect if the device is mobile
 const useMobile = (breakpoint: number = 768): boolean => {
     const [isMobile, setIsMobile] = useState<boolean>(false);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const handleResize = (): void => {
             setIsMobile(window.innerWidth <= breakpoint);
         };

@@ -3,6 +3,7 @@ import useMobile from '@/hooks/useMobile'
 import { TbRating18Plus } from "react-icons/tb";
 import { FaTelegram } from "react-icons/fa";
 import { ImEye } from "react-icons/im";
+import Script from 'next/script';
 
 const Header = () => {
     const isMobile = useMobile();
@@ -304,9 +305,6 @@ const Header = () => {
 
                     </>
             }
-
-
-
 
         </header>
     )

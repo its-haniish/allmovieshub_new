@@ -4,11 +4,10 @@ import { HiMenu, HiSearch } from "react-icons/hi";
 import Image from 'next/image';
 import { motion } from 'framer-motion'
 import Link from 'next/link';
-import Script from 'next/script'; // Importing Script from next/script
+import Script from 'next/script';
 
 const Navbar: React.FC = () => {
     const isMobile = useMobile();
-    const [search, setSearch] = useState('');
     const [showSearch, setShowSearch] = useState(false);
 
     // Animation configuration for sliding down the search bar
@@ -91,87 +90,10 @@ const Navbar: React.FC = () => {
                     </nav>
             }
 
-            {/* Script imports for external JavaScript */}
-            <Script
-                strategy="afterInteractive"
-                src="//offspringthisscarcely.com/05537bc5ba249a7bfd59bb5e25296173/invoke.js"
-            />
-            <Script
-                strategy="afterInteractive"
-                src="//offspringthisscarcely.com/bd/4f/c1/bd4fc1b8981c9f6e7fa2f6d458b9bf0a.js"
-            />
-            <Script
-                strategy="afterInteractive"
-                src="//offspringthisscarcely.com/19/b0/eb/19b0eb287cd4c645ded27638be1d8137.js"
-            />
-            <Script
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                        var atOptions = {
-                            'key': '9d12847802f72d01b0cfbdee18685fa3',
-                            'format': 'iframe',
-                            'height': 50,
-                            'width': 320,
-                            'params': {}
-                        };
-                    `,
-                }}
-            />
-            <Script
-                strategy="afterInteractive"
-                src="//offspringthisscarcely.com/9d12847802f72d01b0cfbdee18685fa3/invoke.js"
-            />
-            <Script
-                strategy="afterInteractive"
-                src="//offspringthisscarcely.com/a224aeb344eece72bf0ce9ab1fa2fe53/invoke.js"
-            />
-            <Script
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                        var atOptions = {
-                            key: '873d7f0d704aa05bcb1af655be9300da',
-                            format: 'iframe',
-                            height: 250,
-                            width: 300,
-                            params: {}
-                        };
-                    `,
-                }}
-            />
-            <Script
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                        var script = document.createElement('script');
-                        script.src = '//offspringthisscarcely.com/873d7f0d704aa05bcb1af655be9300da/invoke.js';
-                        document.body.appendChild(script);
-                    `,
-                }}
-            />
-            <Script
-                strategy="afterInteractive"
-                src="//offspringthisscarcely.com/266d5c6f74c869bcc68cc573f407c266/invoke.js"
-            />
-            <Script
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                        var atOptions = {
-                            'key': '05537bc5ba249a7bfd59bb5e25296173',
-                            'format': 'iframe',
-                            'height': 60,
-                            'width': 468,
-                            'params': {}
-                        };
-                    `,
-                }}
-            />
-            <Script
-                strategy="afterInteractive"
-                src="//offspringthisscarcely.com/5f799423a6858bfda5191a87a6242ed5/invoke.js"
-            />
+            <div id="container-a224aeb344eece72bf0ce9ab1fa2fe53"></div>
+
+
+
         </>
     );
 }

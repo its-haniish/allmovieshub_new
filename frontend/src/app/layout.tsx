@@ -60,104 +60,97 @@ export default function RootLayout({
               `,
           }}
         />
+
+
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {/* Ads Scripts */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            var atOptions = {
+              key: '873d7f0d704aa05bcb1af655be9300da',
+              format: 'iframe',
+              height: 250,
+              width: 300,
+              params: {}
+            };
+          `,
+          }}
+        />
+        <script src="//offspringthisscarcely.com/873d7f0d704aa05bcb1af655be9300da/invoke.js"></script>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            var atOptions = {
+              key: 'f4c245f8cf98fae0a3d1cdeb6e640c18',
+              format: 'iframe',
+              height: 90,
+              width: 728,
+              params: {}
+            };
+          `,
+          }}
+        />
+        <script src="//offspringthisscarcely.com/f4c245f8cf98fae0a3d1cdeb6e640c18/invoke.js"></script>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            var atOptions = {
+              key: '5f799423a6858bfda5191a87a6242c19',
+              format: 'iframe',
+              height: 600,
+              width: 160,
+              params: {}
+            };
+          `,
+          }}
+        />
+        <script src="//offspringthisscarcely.com/5f799423a6858bfda5191a87a6242c19/invoke.js"></script>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            var atOptions = {
+              key: '05537bc5ba249a7bfd59bb5e25296173',
+              format: 'iframe',
+              height: 60,
+              width: 468,
+              params: {}
+            };
+          `,
+          }}
+        />
+        <script src="//offspringthisscarcely.com/05537bc5ba249a7bfd59bb5e25296173/invoke.js"></script>
+
+        <script src="//offspringthisscarcely.com/bd/4f/c1/bd4fc1b8981c9f6e7fa2f6d458b9bf0a.js"></script>
+        <script src="//offspringthisscarcely.com/19/b0/eb/19b0eb287cd4c645ded27638be1d8137.js"></script>
+
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            var atOptions = {
+              key: '9d12847802f72d01b0cfbdee18685fa3',
+              format: 'iframe',
+              height: 50,
+              width: 320,
+              params: {}
+            };
+          `,
+          }}
+        />
+        <script src="//offspringthisscarcely.com/9d12847802f72d01b0cfbdee18685fa3/invoke.js"></script>
+
+        <script
+          async={true}
+          data-cfasync="false"
+          src="//offspringthisscarcely.com/a224aeb344eece72bf0ce9ab1fa2fe53/invoke.js"
+        ></script>
         <div id="container-a224aeb344eece72bf0ce9ab1fa2fe53"></div>
+
         {children}
-
-
-        {/* Ad Scripts */}
-
-        {/* Ad Scripts using Next.js Script component */}
-        <Script
-          type="text/javascript"
-          strategy="afterInteractive" // Ensures script loads after the page loads
-          dangerouslySetInnerHTML={{
-            __html: `
-              var atOptions = {
-                'key' : 'f4c245f8cf98fae0a3d1cdeb6e640c18',
-                'format' : 'iframe',
-                'height' : 90,
-                'width' : 728,
-                'params' : {}
-              };
-            `,
-          }}
-        />
-
-        <Script
-          type="text/javascript"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              var atOptions = {
-                'key' : '5f799423a6858bfda5191a87a6242c19',
-                'format' : 'iframe',
-                'height' : 600,
-                'width' : 160,
-                'params' : {}
-              };
-            `,
-          }}
-        />
-
-        <Script
-          type="text/javascript"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              var atOptions = {
-                'key' : '266d5c6f74c869bcc68cc573f407c266',
-                'format' : 'iframe',
-                'height' : 300,
-                'width' : 160,
-                'params' : {}
-              };
-            `,
-          }}
-        />
-
-        {/* External Ad Scripts */}
-        <Script
-          type="text/javascript"
-          src="//offspringthisscarcely.com/05537bc5ba249a7bfd59bb5e25296173/invoke.js"
-          strategy="afterInteractive"
-        />
-
-        <Script
-          type="text/javascript"
-          src="//offspringthisscarcely.com/bd/4f/c1/bd4fc1b8981c9f6e7fa2f6d458b9bf0a.js"
-          strategy="afterInteractive"
-        />
-
-        <Script
-          type="text/javascript"
-          src="//offspringthisscarcely.com/19/b0/eb/19b0eb287cd4c645ded27638be1d8137.js"
-          strategy="afterInteractive"
-        />
-
-        <Script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-              var atOptions = {
-                'key' : '9d12847802f72d01b0cfbdee18685fa3',
-                'format' : 'iframe',
-                'height' : 50,
-                'width' : 320,
-                'params' : {}
-              };
-            `,
-          }}
-        />
-
-        <Script
-          type="text/javascript"
-          src="//offspringthisscarcely.com/9d12847802f72d01b0cfbdee18685fa3/invoke.js"
-          strategy="afterInteractive"
-        />
-
-
 
       </body>
     </html>

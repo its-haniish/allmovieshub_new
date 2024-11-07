@@ -9,6 +9,7 @@ import { BallTriangle } from "react-loader-spinner"
 import PaginationBar from '@/components/PaginationBar'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
+import Script from 'next/script'
 
 const Home: React.FC = () => {
   const isMobile = useMobile();
@@ -122,6 +123,7 @@ const Home: React.FC = () => {
                 <PaginationBar page={page} />
               </section>
             </main>
+
           </main>
         )
       }
