@@ -12,6 +12,7 @@ import { useSearchParams } from 'next/navigation'
 const Home: React.FC = () => {
   const isMobile = useMobile();
   const searchParams = useSearchParams();
+  const [page] = useState<number>(1);
   const [movies, setMovies] = useState<MovieCard[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -45,7 +46,37 @@ const Home: React.FC = () => {
           <>
             <Navbar />
             <Header />
-            <div>page</div>
+            <section className="w-full grid grid-cols-2 gap-4 bg-[#111111] pt-6 px-3">
+              {loading ? (
+                <div className="w-full h-[58vh] flex gap-6 flex-col justify-center items-center">
+                  <BallTriangle height={100} width={100} radius={5} color="#4fa94d" ariaLabel="ball-triangle-loading" visible={true} />
+                  <p className="font-semibold tracking-wider">Loading...</p>
+                </div>
+              ) : (
+                movies.map((movie) => (
+                  <div key={movie._id} className="flex flex-col justify-center items-center gap-3 w-full overflow-hidden h-fit">
+                    <div className="border-4 rounded-lg cursor-pointer" style={{ borderImage: "linear-gradient(to right, orange, green) 1;" }}>
+                      <div className="w-full" style={{ position: 'relative', height: 'auto' }}>
+                        <Image
+                          src={movie.featuredImage}
+                          alt="Movie Image"
+                          width={600}  // Increased width
+                          height={400}  // Increased height
+                        />
+                      </div>
+                    </div>
+                    <a href={movie.slug} className="w-full text-[0.7rem] text-center hover:text-red-600">
+                      {movie.title}
+                    </a>
+                  </div>
+                ))
+              )}
+            </section>
+
+            {/* Pagination Bar */}
+            <section className="w-full gap-3 bg-[#111111] pt-6 h-fit p-3 pb-6 flex justify-center items-center">
+              <PaginationBar page={page} />
+            </section>
           </>
           :
           <main style={{
@@ -88,7 +119,7 @@ const Home: React.FC = () => {
                             layout="responsive"
                           />
                         </div>
-                        <a href={"/"} className='w-[175px] text-[0.8rem] text-center hover:text-red-600'>
+                        <a href={movie.slug} className='w-[175px] text-[0.9rem] text-center hover:text-red-600'>
                           {movie.title}
                         </a>
                       </div>
@@ -99,7 +130,7 @@ const Home: React.FC = () => {
 
               {/* pagination bar */}
               <section className='w-[55vw] gap-3 bg-[#111111] pt-6 h-fit p-3 pb-6 flex justify-center items-center'>
-                <PaginationBar page={searchParams.get('page') ? parseInt(searchParams.get('page') as string) : 1} />
+                <PaginationBar page={page} />
               </section>
             </main>
 
