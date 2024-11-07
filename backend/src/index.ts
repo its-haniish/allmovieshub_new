@@ -15,9 +15,9 @@ app.use(express.json({ limit: '50mb' }));
 app.use(cors());
 
 // Routes
-app.use('/', routes);
+app.use('/api/', routes);
 
-app.get('/', (req, res) => {
+app.get('/api/', (req, res) => {
     res.send('<h1>Server is running...</h1>');
 });
 // Connect to the database and start the server
