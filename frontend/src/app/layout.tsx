@@ -56,12 +56,71 @@ export default function RootLayout({
               }
               gtag('js', new Date());
               gtag('config', 'G-RNZX7KQM8G');
-            `,
+              `,
           }}
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <div id="container-a224aeb344eece72bf0ce9ab1fa2fe53"></div>
         {children}
+
+
+        {/* Ad Scripts */}
+
+
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var atOptions = {
+                'key' : 'f4c245f8cf98fae0a3d1cdeb6e640c18',
+                'format' : 'iframe',
+                'height' : 90,
+                'width' : 728,
+                'params' : {}
+              };
+            `,
+          }}
+        ></script>
+
+
+
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var atOptions = {
+                'key' : '5f799423a6858bfda5191a87a6242c19',
+                'format' : 'iframe',
+                'height' : 600,
+                'width' : 160,
+                'params' : {}
+              };
+            `,
+          }}
+        ></script>
+
+
+
+
+        <script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var atOptions = {
+                'key' : '266d5c6f74c869bcc68cc573f407c266',
+                'format' : 'iframe',
+                'height' : 300,
+                'width' : 160,
+                'params' : {}
+              };
+            `,
+          }}
+        ></script>
+
+
+
+
       </body>
     </html>
   );

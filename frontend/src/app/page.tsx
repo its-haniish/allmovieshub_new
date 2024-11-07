@@ -46,6 +46,7 @@ const Home: React.FC = () => {
           <>
             <Navbar />
             <Header />
+
             <section className="w-full grid grid-cols-2 gap-4 bg-[#111111] pt-6 px-3">
               {loading ? (
                 <div className="w-full h-[58vh] flex gap-6 flex-col justify-center items-center">
@@ -65,7 +66,7 @@ const Home: React.FC = () => {
                         />
                       </div>
                     </div>
-                    <Link href="/" className="w-full text-[0.7rem] text-center hover:text-red-600" passHref>
+                    <Link href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className="w-full text-[0.7rem] text-center hover:text-red-600" passHref>
                       {movie.title}
                     </Link>
                   </div>
@@ -119,7 +120,7 @@ const Home: React.FC = () => {
                             layout="responsive"
                           />
                         </div>
-                        <Link href="/" className='w-[175px] text-[0.9rem] text-center hover:text-red-600' passHref>
+                        <Link href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='w-[175px] text-[0.9rem] text-center hover:text-red-600' passHref>
                           {movie.title}
                         </Link>
                       </div>
