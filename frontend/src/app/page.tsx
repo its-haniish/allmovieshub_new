@@ -8,7 +8,7 @@ import { MovieCard } from '@/types/movies'
 import { BallTriangle } from "react-loader-spinner"
 import PaginationBar from '@/components/PaginationBar'
 import { useSearchParams } from 'next/navigation'
-
+import Link from 'next/link'
 const Home: React.FC = () => {
   const isMobile = useMobile();
   const searchParams = useSearchParams();
@@ -65,9 +65,9 @@ const Home: React.FC = () => {
                         />
                       </div>
                     </div>
-                    <a href={movie.slug} className="w-full text-[0.7rem] text-center hover:text-red-600">
+                    <Link href="/" className="w-full text-[0.7rem] text-center hover:text-red-600" passHref>
                       {movie.title}
-                    </a>
+                    </Link>
                   </div>
                 ))
               )}
@@ -119,9 +119,9 @@ const Home: React.FC = () => {
                             layout="responsive"
                           />
                         </div>
-                        <a href={movie.slug} className='w-[175px] text-[0.9rem] text-center hover:text-red-600'>
+                        <Link href="/" className='w-[175px] text-[0.9rem] text-center hover:text-red-600' passHref>
                           {movie.title}
-                        </a>
+                        </Link>
                       </div>
                     ))
                 }
