@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Script from 'next/script'; // Importing Next.js Script component
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -67,9 +68,10 @@ export default function RootLayout({
 
         {/* Ad Scripts */}
 
-
-        <script
+        {/* Ad Scripts using Next.js Script component */}
+        <Script
           type="text/javascript"
+          strategy="afterInteractive" // Ensures script loads after the page loads
           dangerouslySetInnerHTML={{
             __html: `
               var atOptions = {
@@ -81,12 +83,11 @@ export default function RootLayout({
               };
             `,
           }}
-        ></script>
+        />
 
-
-
-        <script
+        <Script
           type="text/javascript"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               var atOptions = {
@@ -98,13 +99,11 @@ export default function RootLayout({
               };
             `,
           }}
-        ></script>
+        />
 
-
-
-
-        <script
+        <Script
           type="text/javascript"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               var atOptions = {
@@ -116,8 +115,47 @@ export default function RootLayout({
               };
             `,
           }}
-        ></script>
+        />
 
+        {/* External Ad Scripts */}
+        <Script
+          type="text/javascript"
+          src="//offspringthisscarcely.com/05537bc5ba249a7bfd59bb5e25296173/invoke.js"
+          strategy="afterInteractive"
+        />
+
+        <Script
+          type="text/javascript"
+          src="//offspringthisscarcely.com/bd/4f/c1/bd4fc1b8981c9f6e7fa2f6d458b9bf0a.js"
+          strategy="afterInteractive"
+        />
+
+        <Script
+          type="text/javascript"
+          src="//offspringthisscarcely.com/19/b0/eb/19b0eb287cd4c645ded27638be1d8137.js"
+          strategy="afterInteractive"
+        />
+
+        <Script
+          type="text/javascript"
+          dangerouslySetInnerHTML={{
+            __html: `
+              var atOptions = {
+                'key' : '9d12847802f72d01b0cfbdee18685fa3',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+              };
+            `,
+          }}
+        />
+
+        <Script
+          type="text/javascript"
+          src="//offspringthisscarcely.com/9d12847802f72d01b0cfbdee18685fa3/invoke.js"
+          strategy="afterInteractive"
+        />
 
 
 
