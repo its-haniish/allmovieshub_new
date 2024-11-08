@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
-import useMobile from '@/hooks/useMobile'
+import useMobile from '../hooks/useMobile'
 import { HiMenu, HiSearch } from "react-icons/hi";
-import Image from 'next/image';
 import { motion } from 'framer-motion'
-import Link from 'next/link';
-import Script from 'next/script';
+import { Link } from "react-router-dom"
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
     const isMobile = useMobile();
     const [showSearch, setShowSearch] = useState(false);
 
@@ -23,8 +21,8 @@ const Navbar: React.FC = () => {
                     <>
                         <nav className='bg-[#13736D] flex items-center justify-between p-2 h-fit'>
                             <HiMenu size={30} color='white' className='p-1 border border-white' />
-                            <Link href="/" passHref>
-                                <Image
+                            <Link to="/" >
+                                <img
                                     src="/horizontal_logo.jpg"  // Path to your image
                                     alt="Logo"                  // Description for accessibility
                                     width={140}                  // Desired width
@@ -60,8 +58,8 @@ const Navbar: React.FC = () => {
                     :
                     <nav>
                         <div className='flex justify-center items-center py-3 bg-[#111111]'>
-                            <Link href="/" passHref>
-                                <Image
+                            <Link to="/" >
+                                <img
                                     src="/horizontal_logo.jpg"  // Path to your image
                                     alt="Logo"                  // Description for accessibility
                                     width={180}                  // Desired width
@@ -70,16 +68,16 @@ const Navbar: React.FC = () => {
                             </Link>
                         </div>
                         <div className='bg-[#13736D] flex items-center justify-between h-fit'>
-                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.8rem] py-2 px-1 hover:bg-[#116862]'>HOME</a>
-                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.8rem] py-2 px-1 hover:bg-[#116862]'>BOLLYWOOD MOVIES</a>
-                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.8rem] py-2 px-1 hover:bg-[#116862]'>HOLLYWOOD HINDI DUBBED</a>
-                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.8rem] py-2 px-1 hover:bg-[#116862]'>SOUTH HINDI DUBBED</a>
-                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.8rem] py-2 px-1 hover:bg-[#116862]'>HINDI DUBBED MOVIES</a>
-                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.8rem] py-2 px-1 hover:bg-[#116862]'>WEB SERIES</a>
+                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>HOME</a>
+                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>BOLLYWOOD MOVIES</a>
+                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>HOLLYWOOD HINDI DUBBED</a>
+                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>SOUTH HINDI DUBBED</a>
+                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>HINDI DUBBED MOVIES</a>
+                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>WEB SERIES</a>
                             <div className='h-[3rem] bg-[#116862] flex justify-center items-center'>
                                 <input type="text"
                                     placeholder='Search....'
-                                    className='bg-[#116862] outline-none h-full text-[0.8rem] placeholder:text-white px-2'
+                                    className='bg-[#116862] outline-none h-full text-[0.6rem] placeholder:text-white px-2'
                                     onChange={() => window.location.href = "https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d"}
                                 />
                                 <HiSearch size={25} color='white' className='pr-2 cursor-pointer'
@@ -90,10 +88,7 @@ const Navbar: React.FC = () => {
                     </nav>
             }
 
-            <div id="container-a224aeb344eece72bf0ce9ab1fa2fe53"></div>
-
-
-
+            <div id="container-a224aeb344eece72bf0ce9ab1fa2fe53" className='bg-[#111111]'></div>
         </>
     );
 }
