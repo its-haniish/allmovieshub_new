@@ -169,11 +169,10 @@ export const getMovieCardsBySearch = async (req: Request, res: Response): Promis
 // Function to get all slugs, titles, and featured images of blogs with pagination
 export const getMovie = async (req: Request, res: Response): Promise<void> => {
     try {
-        // Get the page number from query parameters or default to 1
-        const title = (req.query.title as string);
+        // Get the slug from query parameters or default to 1
+        const slug = (req.query.slug as string);
 
-        // Fetch blogs with pagination and select only slug, title, and featuredImage fields
-        const data = await Posts.findOne({ title });
+        const data = await Posts.findOne({ slug });
         res.status(200).json(data);
     } catch (error) {
         console.error('Error fetching slugs and titles:', error);

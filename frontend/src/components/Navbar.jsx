@@ -41,7 +41,11 @@ const Navbar = () => {
 
                         {/* Animated search bar */}
                         {showSearch && (
-                            <motion.div
+                            <motion.form
+                                onSubmit={e => {
+                                    e.preventDefault();
+                                    navigate(`/search?search=${searchQuery}&page=1`);
+                                }}
                                 className='absolute w-screen flex bg-black mt-2'
                                 initial="hidden"
                                 animate="visible"
@@ -53,13 +57,12 @@ const Navbar = () => {
                                     type="text"
                                     placeholder='Type and hit enter...'
                                     className='bg-black p-2 text-white w-full outline-none placeholder:text-gray-400 focus:placeholder:text-white'
+                                    onChange={e => setSearchQuery(e.target.value)}
                                 />
-                                <button className='bg-[#0b9607] px-4 font-semibold text-white hover:bg-white hover:text-black'
-                                    onClick={() => window.location.href = "https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d"}
-                                >
+                                <button type='submit' className='bg-[#0b9607] px-4 font-semibold text-white hover:bg-white hover:text-black'>
                                     Search
                                 </button>
-                            </motion.div>
+                            </motion.form>
                         )}
                     </>
                     :
@@ -84,16 +87,22 @@ const Navbar = () => {
                             <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>SOUTH HINDI DUBBED</a>
                             <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>HINDI DUBBED MOVIES</a>
                             <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>WEB SERIES</a>
-                            <div className='h-[3rem] bg-[#116862] flex justify-center items-center'>
+                            <form className='h-[3rem] bg-[#116862] flex justify-center items-center'
+                                onSubmit={e => {
+                                    e.preventDefault();
+                                    navigate(`/search?search=${searchQuery}&page=1`);
+                                }}
+                            >
                                 <input type="text"
                                     placeholder='Search....'
                                     className='bg-[#116862] outline-none h-full text-[0.6rem] placeholder:text-white px-2'
                                     onChange={e => setSearchQuery(e.target.value)}
                                 />
-                                <HiSearch size={25} color='white' className='pr-2 cursor-pointer'
-                                    onClick={() => navigate(`/search?search=${searchQuery}&page=1`)}
-                                />
-                            </div>
+                                <button type='submit' className='bg-none border-none'>
+
+                                    <HiSearch size={25} color='white' className='pr-2 cursor-pointer' />
+                                </button>
+                            </form>
                         </div>
                     </nav>
             }
