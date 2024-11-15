@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, {  } from 'react';
 import { Link } from 'react-router-dom';
 import useMobile from '../hooks/useMobile';
-import { useSearchParams } from 'react-router-dom';
+// import { useSearchParams } from 'react-router-dom';
 
 const PaginationBar = ({ page, moviesLength }) => {
-    const [searchParams] = useSearchParams();  // Destructure correctly to get the searchParams
+    // const [searchParams] = useSearchParams();  // Destructure correctly to get the searchParams
     const isMobile = useMobile();
     return (
         <>

@@ -3,7 +3,7 @@ import React, { useEffect, useState, Suspense } from 'react'
 import Header from '../components/Header'
 import { BallTriangle } from "react-loader-spinner"
 import PaginationBar from '../components/PaginationBar'
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import useMobile from '../hooks/useMobile';
 
 const Home = () => {
@@ -74,7 +74,7 @@ const Home = () => {
         if (searchQuery) {
             searchMovies(searchQuery, currentPage);
         }
-    }, [searchParams]);
+    }, [searchParams, searchQuery]);
 
     useEffect(() => {
         // Fetch movies when `searchQuery` changes
@@ -85,7 +85,7 @@ const Home = () => {
         // Fetch movies when `page` changes
         fetchMovies(page);
 
-    }, [page]);
+    }, [page, searchQuery]);
 
     return (
         <Suspense fallback={
@@ -190,7 +190,7 @@ const Home = () => {
                                                         </a>
                                                     </div>
 
-                                                    <a href={`/movies/${movie.slug}`} className='w-[175px] text-[0.7rem] text-center hover:text-red-600' >
+                                                    <a href={`/movies/${movie.slug}`} target='_blank' rel='noreferer' className='w-[175px] text-[0.7rem] text-center hover:text-red-600' >
                                                         {movie.title}
                                                     </a>
                                                 </div>
