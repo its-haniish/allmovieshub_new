@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useMobile from '../hooks/useMobile';
+import { useSearchParams } from 'react-router-dom';
+
 const PaginationBar = ({ page }) => {
+    const [searchParams] = useSearchParams();  // Destructure correctly to get the searchParams
+    const [pageNo] = useState(page);
+    const paramsPage = parseInt(searchParams.get('page')) || 1;
     const isMobile = useMobile();
     return (
         <>

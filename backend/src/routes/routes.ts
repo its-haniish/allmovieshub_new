@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createBlog, getBlogBySlug, updateBlog, deleteBlog, getAllBlogs, getMovieCards } from '../controllers/blogController'; // Import all relevant controllers
+import { createBlog, getBlogBySlug, updateBlog, deleteBlog, getAllBlogs, getMovieCards, getMovieCardsBySearch, getMovie } from '../controllers/blogController'; // Import all relevant controllers
 
 const router = Router();
 
@@ -7,7 +7,7 @@ const router = Router();
 router.post('/create', createBlog);
 
 // Route to fetch a blog by slug 
-router.post('/fetch-one', getBlogBySlug);
+router.get('/fetch-one', getMovie);
 
 // Route to update a blog by slug
 router.post('/update', updateBlog);
@@ -20,6 +20,11 @@ router.post('/fetch-all', getAllBlogs);
 
 // Route to fetch all slugs and titles
 router.get('/movies', getMovieCards);
+
+// Route to fetch all slugs and titles
+router.get('/search', getMovieCardsBySearch);
+
+
 
 // Export the router to use in your app
 export default router;

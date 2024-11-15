@@ -3,10 +3,13 @@ import useMobile from '../hooks/useMobile'
 import { HiMenu, HiSearch } from "react-icons/hi";
 import { motion } from 'framer-motion'
 import { Link } from "react-router-dom"
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const isMobile = useMobile();
     const [showSearch, setShowSearch] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
 
     // Animation configuration for sliding down the search bar
     const searchBarVariants = {
@@ -85,10 +88,10 @@ const Navbar = () => {
                                 <input type="text"
                                     placeholder='Search....'
                                     className='bg-[#116862] outline-none h-full text-[0.6rem] placeholder:text-white px-2'
-                                    onChange={() => window.location.href = "https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d"}
+                                    onChange={e => setSearchQuery(e.target.value)}
                                 />
                                 <HiSearch size={25} color='white' className='pr-2 cursor-pointer'
-                                    onClick={() => window.location.href = "https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d"}
+                                    onClick={() => navigate(`/search?search=${searchQuery}&page=1`)}
                                 />
                             </div>
                         </div>
