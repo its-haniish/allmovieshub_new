@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 import useMobile from '../hooks/useMobile';
 import { useSearchParams } from 'react-router-dom';
 
-const PaginationBar = ({ page }) => {
+const PaginationBar = ({ page, moviesLength }) => {
     const [searchParams] = useSearchParams();  // Destructure correctly to get the searchParams
-    const [pageNo] = useState(page);
-    const paramsPage = parseInt(searchParams.get('page')) || 1;
     const isMobile = useMobile();
     return (
         <>
@@ -19,9 +17,12 @@ const PaginationBar = ({ page }) => {
                 <section className='w-[55vw] gap-3 bg-[#111111] pt-6 h-fit p-3 pb-6 flex justify-center items-center'>
                     <div className='flex justify-center items-center gap-1'>
                         {/* Previous button */}
-                        <Link to={`/movies?page=${page - 1}`} className='flex justify-center items-center flex-nowrap w-[22vw]' >
-                            {"\u2190"} Previous
-                        </Link>
+                        {page > 1 &&
+
+                            <Link to={`/movies?page=${page - 1}`} className='flex justify-center items-center flex-nowrap w-[22vw]' >
+                                {"\u2190"} Previous
+                            </Link>
+                        }
 
                         {/* Page number links */}
                         <div className='flex justify-center items-center gap-3'>
@@ -38,23 +39,28 @@ const PaginationBar = ({ page }) => {
                                     </Link>
                                 </>
                             )}
+                            <p className='text-green-600 font-bold'>{moviesLength === 0 || moviesLength === undefined ? "Movie not found." : page}</p>
+                            {moviesLength === 20 &&
 
-                            <p className='text-green-600 font-bold'>{page}</p>
-
-                            <Link to={`/movies?page=${page + 1}`}>
-                                {page + 1}
-                            </Link>
-                            <Link to={`/movies?page=${page + 2}`}>
-                                {page + 2}
-                            </Link>
-                            <Link to={`/movies?page=${page + 3}`}>
-                                {page + 3}
-                            </Link>
+                                (<>
+                                    <Link to={`/movies?page=${page + 1}`}>
+                                        {page + 1}
+                                    </Link>
+                                    <Link to={`/movies?page=${page + 2}`}>
+                                        {page + 2}
+                                    </Link>
+                                    <Link to={`/movies?page=${page + 3}`}>
+                                        {page + 3}
+                                    </Link>
+                                </>
+                                )}
                         </div>
-
-                        <Link to={`/movies?page=${page + 1}`} className='flex justify-center items-center flex-nowrap w-[15vw]'>
-                            Next {"\u27F6"}
-                        </Link>
+                        {
+                            moviesLength === 20 &&
+                            <Link to={`/movies?page=${page + 1}`} className='flex justify-center items-center flex-nowrap w-[15vw]'>
+                                Next {"\u27F6"}
+                            </Link>
+                        }
                     </div>
                 </section>
             ) : (
@@ -63,10 +69,11 @@ const PaginationBar = ({ page }) => {
                 <section className='w-[55vw] gap-3 bg-[#111111] pt-6 h-fit p-3 pb-6 flex justify-center items-center'>
                     <div className='flex justify-center items-center gap-1'>
                         {/* Previous button */}
-                        <Link to={`/movies?page=${page - 1}`} >
-                            {"\u2190"} Previous
-                        </Link>
-
+                        {page > 1 &&
+                            (<Link to={`/movies?page=${page - 1}`} >
+                                {"\u2190"} Previous
+                            </Link>)
+                        }
                         {/* Page number links */}
                         <div className='flex justify-center items-center gap-3'>
                             {page > 3 && (
@@ -83,22 +90,30 @@ const PaginationBar = ({ page }) => {
                                 </>
                             )}
 
-                            <p className='text-green-600 font-bold'>{page}</p>
+                            <p className='text-green-600 font-bold'>{moviesLength === 0 || moviesLength === undefined ? "Movie not found." : page}</p>
+                            {moviesLength === 20 &&
 
-                            <Link to={`/movies?page=${page + 1}`}>
-                                {page + 1}
-                            </Link>
-                            <Link to={`/movies?page=${page + 2}`}>
-                                {page + 2}
-                            </Link>
-                            <Link to={`/movies?page=${page + 3}`}>
-                                {page + 3}
-                            </Link>
+                                (<>
+                                    <Link to={`/movies?page=${page + 1}`}>
+                                        {page + 1}
+                                    </Link>
+                                    <Link to={`/movies?page=${page + 2}`}>
+                                        {page + 2}
+                                    </Link>
+                                    <Link to={`/movies?page=${page + 3}`}>
+                                        {page + 3}
+                                    </Link>
+                                </>
+                                )}
                         </div>
+                        {
+                            moviesLength === 20 &&
+                            <Link to={`/movies?page=${page + 1}`} >
+                                Next {"\u27F6"}
+                            </Link>
+                        }
 
-                        <Link to={`/movies?page=${page + 1}`} >
-                            Next {"\u27F6"}
-                        </Link>
+
                     </div>
                 </section>
             )}

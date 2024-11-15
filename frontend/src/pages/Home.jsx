@@ -12,7 +12,6 @@ const Home = () => {
     const [page, setPage] = useState(1);
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [moviesNotFound, setMoviesNotFound] = useState(false);
     const searchQuery = searchParams.get('search');
 
 
@@ -46,13 +45,13 @@ const Home = () => {
             const res = await fetch(`${process.env.REACT_APP_BASE_URL}/search?search=${searchQuery}&page=${page}`);
             const data = await res.json();
 
-            console.log("searched data: ", data);
 
 
             if (data) {
 
                 if (data.posts.length === 0) {
-                    setPage(1);
+                    setPage(1)
+                    setMovies([]);
                     setLoading(false);
                     return;
                 }
@@ -143,7 +142,7 @@ const Home = () => {
 
 
                         <section className="w-full gap-3 bg-[#111111] pt-6 h-fit p-3 pb-6 flex justify-center items-center">
-                            <PaginationBar page={page} />
+                            <PaginationBar page={page} moviesLength={movies.length} />
                         </section>
 
 
@@ -204,7 +203,7 @@ const Home = () => {
 
 
 
-                            <PaginationBar page={page} />
+                            <PaginationBar page={page} moviesLength={movies.length} />
                         </main>
 
                     </main>
