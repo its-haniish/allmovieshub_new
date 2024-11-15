@@ -15,16 +15,14 @@ const router = createBrowserRouter([
         // errorElement: <NotFound />
     },
     {
-<<<<<<< HEAD
         path: '/movies/:slug',
         element: <Movie />
     }
-=======
+    , {
         path: '/search',
         element: <Home />,
         // errorElement: <NotFound />
     },
->>>>>>> c155f571a5dcf57cdd91af6a53d2ac0e0d49fbba
 ]);
 
 export default router;
