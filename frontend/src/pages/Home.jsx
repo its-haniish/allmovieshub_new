@@ -12,13 +12,23 @@ const Home = () => {
     const [page, setPage] = useState(1);
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [moviesNotFound, setMoviesNotFound] = useState(false);
+    const searchQuery = searchParams.get('search');
+
 
     const fetchMovies = async (page) => {
         setLoading(true);
         try {
+
             const res = await fetch(`${process.env.REACT_APP_BASE_URL}/movies?page=${page}`);
             const data = await res.json();
+
             if (data) {
+                if (data.length === 0) {
+                    setPage(1);
+                    setLoading(false);
+                    return;
+                }
                 setMovies([...data]);
                 setLoading(false);
             }
@@ -28,13 +38,51 @@ const Home = () => {
         }
     }
 
+
+    const searchMovies = async (searchQuery, page) => {
+        setLoading(true);
+        try {
+
+            const res = await fetch(`${process.env.REACT_APP_BASE_URL}/search?search=${searchQuery}&page=${page}`);
+            const data = await res.json();
+
+            console.log("searched data: ", data);
+
+
+            if (data) {
+
+                if (data.posts.length === 0) {
+                    setPage(1);
+                    setLoading(false);
+                    return;
+                }
+                setMovies([...data.posts]);
+                setLoading(false);
+            }
+
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
+        }
+    }
+
+
     useEffect(() => {
         // Set page from URL search parameters
         const currentPage = searchParams.get('page') ? parseInt(searchParams.get('page')) : 1;
         setPage(currentPage);
+        // Set searchQuery from URL search parameters
+        if (searchQuery) {
+            searchMovies(searchQuery, currentPage);
+        }
     }, [searchParams]);
 
     useEffect(() => {
+        // Fetch movies when `searchQuery` changes
+        if (searchQuery) {
+            searchMovies(searchQuery, page);
+            return;
+        }
         // Fetch movies when `page` changes
         fetchMovies(page);
 
@@ -85,7 +133,11 @@ const Home = () => {
                                         </Link>
                                     </div>
                                 ))
+
+
                             )}
+
+
                         </section>
 
 

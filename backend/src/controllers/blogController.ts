@@ -134,3 +134,51 @@ export const getMovieCards = async (req: Request, res: Response): Promise<void> 
         res.status(500).json({ message: 'Failed to fetch slugs and titles', error });
     }
 };
+
+
+
+export const getMovieCardsBySearch = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const page = parseInt(req.query.page as string, 10) || 1;
+        const searchQuery = req.query.search as string || "";
+        const limit = 20;
+        const skip = (page - 1) * limit;
+
+        const searchCriteria = searchQuery
+            ? {
+                $or: [
+                    { title: { $regex: searchQuery, $options: "i" } },
+                ]
+            }
+            : {};
+
+        const posts = await Posts.find(searchCriteria, "slug title featuredImage")
+            .sort({ createdAt: -1 }) // Sort by creation date, latest first
+            .skip(skip)
+            .limit(limit);
+
+        res.status(200).json({ posts });
+    } catch (error) {
+        console.error("Error fetching movie cards by search:", error);
+        res.status(500).json({ message: "Failed to fetch movie cards by search", error });
+    }
+};
+
+
+
+// Function to get all slugs, titles, and featured images of blogs with pagination
+export const getMovie = async (req: Request, res: Response): Promise<void> => {
+    try {
+        // Get the page number from query parameters or default to 1
+        const title = (req.query.title as string);
+
+        // Fetch blogs with pagination and select only slug, title, and featuredImage fields
+        const data = await Posts.findOne({ title });
+        res.status(200).json(data);
+    } catch (error) {
+        console.error('Error fetching slugs and titles:', error);
+        res.status(500).json({ message: 'Failed to fetch slugs and titles', error });
+    }
+};
+
+
