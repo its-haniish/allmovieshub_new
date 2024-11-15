@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import useMobile from '../hooks/useMobile'
 import { TbRating18Plus } from "react-icons/tb";
 import { FaTelegram } from "react-icons/fa";
 import { ImEye } from "react-icons/im";
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
     const isMobile = useMobile();
-
+    const [searchQuery, setSearchQuery] = useState('');
+    const navigate = useNavigate();
     useEffect(() => {
         // Create script element for the ad configuration
         const script = document.createElement('script');
@@ -177,15 +179,20 @@ const Header = () => {
 
                         {/* second search bar */}
 
-                        <div className='mb-2 '>
+                        <form className='mb-2 '
+                            onSubmit={e => {
+                                e.preventDefault();
+                                navigate(`/search?search=${searchQuery}&page=1`);
+                            }}
+                        >
                             <input type="text"
                                 placeholder='Search Movies or WEB-Series here....'
                                 className='w-screen mt-3 bg-[#111111] placeholder:text-gray-400
                                  focus:placeholder:text-white text-[0.7rem] py-3 px-2 
                                  border-gray-500 outline-none border-2'
-                                onChange={() => window.location.href = "https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d"}
+                                onChange={e => setSearchQuery(e.target.value)}
                             />
-                        </div>
+                        </form>
 
                     </>
                     :
@@ -324,14 +331,20 @@ const Header = () => {
 
                         {/* second search bar */}
 
-                        <div className='pt-4 w-full overflow-hidden bg-[#111111] pb-5'>
+                        <form
+                            onSubmit={e => {
+                                e.preventDefault();
+                                navigate(`/search?search=${searchQuery}&page=1`);
+                            }}
+                            className='pt-4 w-full overflow-hidden bg-[#111111] pb-5'>
                             <input type="text"
                                 placeholder='Search Movies or WEB-Series here....'
                                 className='w-full mt-3 bg-[#111111] placeholder:text-gray-400
                              focus:placeholder:text-white text-[0.7rem] py-3 px-2 
                              border-gray-500 outline-none border'
+                                onChange={e => setSearchQuery(e.target.value)}
                             />
-                        </div>
+                        </form>
 
                     </>
             }
