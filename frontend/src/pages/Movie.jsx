@@ -121,26 +121,34 @@ export default function Movie() {
               ) : movie ? (
                 <div className="col-span-4">
                   <h1 className="text-2xl font-semibold">{movie.title}</h1>
-                  <img src={movie.featuredImage} alt={movie.title} className="w-80 h-auto my-4 mx-auto" />
+                  <div className="text-white p-4 rounded-lg my-6">
+                    <div className="mt-2 text-lg">
+                      <span className='text-red-200'> {movie.title} </span>. We provide direct download links for best qualities and fast downloads. You can contact us on Telegram for the latest updates.
+                    </div>
+                    <p className="mt-4 text-base">
+                      <span className='text-red-400 font-semibold'>AllMoviesHub</span> is the best online platform for downloading Dual Audio <span className='text-blue-400 font-semibold'>[Hindi-English]</span> Series [300MB], Dual Audio <span className='text-purple-400 font-semibold'>[Hindi-English]</span> Movies Mkv <span className='text-orange-400 font-semibold'>[1080]</span>, Hindi Dubbed Movies Mkv <span className='text-aqua-400 font-semibold'>[720]</span>. We provide direct <span className='text-green-400 font-semibold'>G-Drive</span> download links for fast and secure downloading. Click on the download button below and follow the steps to start downloading.
+                    </p>
+                  </div>
+                  <img src={movie.featuredImage} alt={movie.title} className="w-[60%] h-auto my-4 mx-auto" />
                   <p className="text-sm text-gray-400">{movie.synopsis}</p>
                   <div className="mt-4">
-                    <hr className='my-4'/>
+                    <hr className='my-4' />
                     <p><strong className='text-yellow-400'>Director:</strong> {movie.director}</p>
-                    <hr className='my-4'/>
+                    <hr className='my-4' />
                     <p><strong className='text-yellow-400'>Genres:</strong> {movie.genres}</p>
-                    <hr className='my-4'/>
+                    <hr className='my-4' />
                     <p><strong className='text-yellow-400'>Release Year:</strong> {movie.releaseYear}</p>
-                    <hr className='my-4'/>
+                    <hr className='my-4' />
                     <p><strong className='text-yellow-400'>IMDB Rating:</strong> {movie.imdbRating}</p>
-                    <hr className='my-4'/>
+                    <hr className='my-4' />
                     <p><strong className='text-yellow-400'>Language:</strong> {movie.language}</p>
-                    <hr className='my-4'/>
+                    <hr className='my-4' />
                     <p><strong className='text-yellow-400'>File Size:</strong> {movie.fileSize}</p>
-                    <hr className='my-4'/>
+                    <hr className='my-4' />
                     <p><strong className='text-yellow-400'>Quality:</strong> {movie.quality}</p>
-                    <hr className='my-4'/>
+                    <hr className='my-4' />
                     <p><strong className='text-yellow-400'>Stars:</strong> {movie.starCast}</p>
-                    <hr className='my-4'/>
+                    <hr className='my-4' />
                   </div>
                   <div>
                     <h2 className='mt-2 font-bold text-2xl text-center text-yellow-400 my-4'>ScreenShots:</h2>
@@ -156,7 +164,7 @@ export default function Movie() {
                         const colors = ['text-red-400', 'text-green-400', 'text-blue-400', 'text-pink-400', 'text-orange-400', 'text-purple-400', 'text-teal-400'];
                         const colorClass = colors[index % colors.length];
                         return (<>
-                            <hr  />
+                          <hr />
                           <div key={index} className="my-4 text-center ">
                             <a
                               href={link.link}
