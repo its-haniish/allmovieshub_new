@@ -69,6 +69,7 @@ const postSchema = new mongoose.Schema({
     type: Number,
     default: () => Math.floor(Math.random() * (10000 - 100 + 1)) + 100,
   },
+  downloadLinks: Array
 });
 
 const Posts = mongoose.model('Post', postSchema);

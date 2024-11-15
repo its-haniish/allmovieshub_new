@@ -7,7 +7,7 @@ const main = async () => {
     let browser;
     try {
         browser = await puppeteer.launch({
-            headless: false,
+            headless: true,
             args: [
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
@@ -25,7 +25,7 @@ const main = async () => {
             await page.goto(pageInfo.pageUrl);  // Resume from the last scraped URL
         } else {
             console.log("No previous page found, starting from homepage.");
-            await page.goto('https://allmovieshub.gay/');  // Default URL if not found
+            await page.goto('https://allmovieshub.pl/');  // Default URL if not found
         }
 
         // Scrape the page for posts
@@ -65,11 +65,18 @@ const main = async () => {
                         const fileSize = spans.find((elem) => elem.innerText.trim() === "File Size")?.parentElement?.innerText.split(":")[1]?.trim() || "N/A";
                         const quality = spans.find((elem) => elem.innerText.trim() === "Quality")?.parentElement?.parentElement?.innerText.split(":")[1]?.trim() || "N/A";
                         const image = spans.find((elem) => elem.innerText.trim().includes('Screenshots: “See Before Downloading”'))?.parentElement?.nextElementSibling?.nextElementSibling?.getElementsByTagName("img")[0]?.src || "No image available";
-                        const slug = title.toLowerCase().replace(/[\s|]+/g, "-");
+                        const slug = location.pathname.split('/').filter(Boolean).pop();
                         const words = title.toLowerCase().split(" ");
                         const keywords = words.filter(word => !unwantedWords.includes(word));
                         const metaDesc = `${title} in HD quality for free.`;
                         const synopsis = spans.find((e) => e.innerText.includes("SYNOPSIS"))?.parentElement?.parentElement?.nextElementSibling?.getElementsByTagName("p")[0]?.innerText || "No synopsis available";
+
+                        const ems = Array.from(document.querySelectorAll('em'));
+                        const downloadLinks = ems.slice(1).map(em => {
+                            return { type: em.innerText, link: em.parentElement?.href };
+                        });
+
+
                         return {
                             title,
                             featuredImage,
@@ -86,7 +93,8 @@ const main = async () => {
                             slug,
                             keywords,
                             metaDesc,
-                            synopsis
+                            synopsis,
+                            downloadLinks
                         };
                     }, post);
 
@@ -99,6 +107,8 @@ const main = async () => {
                         await Posts.create(postDetails);  // Save the new post to the database
                         console.log(`Post saved: ${post.title}`);
                     }
+
+                    console.log(postDetails);
 
                 } catch (error) {
                     console.error(`Error scraping post: ${post.title}`, error);
@@ -113,7 +123,7 @@ const main = async () => {
                     await page.goto(pageInfo.pageUrl);  // Resume from the last scraped URL
                 } else {
                     console.log("No previous page found, starting from homepage.");
-                    await page.goto('https://allmovieshub.gay/');  // Default URL if not found
+                    await page.goto('https://allmovieshub.pl/');  // Default URL if not found
                 }
 
                 const nextButton = await page.$('.nextpostslink');
