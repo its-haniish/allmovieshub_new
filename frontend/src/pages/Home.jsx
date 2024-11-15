@@ -73,16 +73,16 @@ const Home = () => {
                                             <div className="w-full" style={{ position: 'relative', height: 'auto' }}>
                                                 <img
                                                     src={movie.featuredImage}
-                                                    alt="Movie Image"
+                                                    alt="Movie"
                                                     width={600}
                                                     height={400}
                                                 />
                                             </div>
                                         </div>
 
-                                        <Link to="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className="w-full text-[0.7rem] text-center hover:text-red-600" >
+                                        <a href={`/movies/${movie.slug}`} className="w-full text-[0.7rem] text-center hover:text-red-600" >
                                             {movie.title}
-                                        </Link>
+                                        </a>
                                     </div>
                                 ))
                             )}
@@ -128,18 +128,20 @@ const Home = () => {
                                                             borderImageSlice: 1,
                                                         }}
                                                     >
-                                                        <img
-                                                            src={movie.featuredImage}
-                                                            alt="Logo"
-                                                            width={180}
-                                                            height={100}
-                                                            layout="responsive"
-                                                        />
+                                                        <a href={`/movies/${movie.slug}`}>
+                                                            <img
+                                                                src={movie.featuredImage}
+                                                                alt="Logo"
+                                                                width={180}
+                                                                height={100}
+                                                                layout="responsive"
+                                                            />
+                                                        </a>
                                                     </div>
 
-                                                    <Link to="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='w-[175px] text-[0.7rem] text-center hover:text-red-600' >
+                                                    <a href={`/movies/${movie.slug}`} className='w-[175px] text-[0.7rem] text-center hover:text-red-600' >
                                                         {movie.title}
-                                                    </Link>
+                                                    </a>
                                                 </div>
                                             ))}
 
