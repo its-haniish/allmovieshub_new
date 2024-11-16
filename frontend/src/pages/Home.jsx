@@ -7,6 +7,7 @@ import { useSearchParams } from 'react-router-dom';
 import useMobile from '../hooks/useMobile';
 import VeriticalBannerAdLong from '../components/ads/VeriticalBannerAdLong'
 import VeriticalBannerAdShort from '../components/ads/VeriticalBannerAdShort'
+import Footer from '../components/Footer'
 
 const Home = () => {
     const isMobile = useMobile();
@@ -189,6 +190,7 @@ const Home = () => {
                         <section className="w-full gap-3 bg-[#111111] pt-6 h-fit p-3 pb-6 flex justify-center items-center">
                             {!loading && <PaginationBar page={page} moviesLength={movies.length} />}
                         </section>
+                        <Footer />
 
 
                     </>
@@ -286,7 +288,9 @@ const Home = () => {
 
 
                             {!loading && <PaginationBar page={page} moviesLength={movies.length} />}
+                            <Footer />
                         </main>
+
 
                     </main>
                 )

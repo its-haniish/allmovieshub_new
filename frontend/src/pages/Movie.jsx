@@ -7,6 +7,7 @@ import { BallTriangle } from 'react-loader-spinner';
 import SquareAd from '../components/ads/SquareAd';
 import VeriticalBannerAdLong from '../components/ads/VeriticalBannerAdLong';
 import HorizontalBannerSmall from '../components/ads/HorizontalBannerSmall';
+import Footer from '../components/Footer';
 
 export default function Movie() {
   const isMobile = useMobile();
@@ -124,6 +125,7 @@ export default function Movie() {
               ) : (
                 <p>No movie found for slug: {slug}</p>
               )}
+              <Footer />
             </div>
           )}
         </>
@@ -223,6 +225,7 @@ export default function Movie() {
                 </>
               )}
             </section>
+            <Footer />
           </main>
         </main>
       )}
