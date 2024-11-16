@@ -124,6 +124,7 @@ export default function Movie() {
               ) : (
                 <p>No movie found for slug: {slug}</p>
               )}
+              <Footer />
             </div>
           )}
         </>
@@ -223,6 +224,7 @@ export default function Movie() {
                 </>
               )}
             </section>
+            <Footer />
           </main>
         </main>
       )}
