@@ -5,6 +5,9 @@ import { BallTriangle } from "react-loader-spinner"
 import PaginationBar from '../components/PaginationBar'
 import { useSearchParams } from 'react-router-dom';
 import useMobile from '../hooks/useMobile';
+import VeriticalBannerAdLong from '../components/ads/VeriticalBannerAdLong'
+import VeriticalBannerAdShort from '../components/ads/VeriticalBannerAdShort'
+import HorizontalBannerSmall from '../components/ads/HorizontalBannerSmall'
 
 const Home = () => {
     const isMobile = useMobile();
@@ -66,6 +69,8 @@ const Home = () => {
     }
 
 
+
+
     useEffect(() => {
         // Set page from URL search parameters
         const currentPage = searchParams.get('page') ? parseInt(searchParams.get('page')) : 1;
@@ -102,36 +107,75 @@ const Home = () => {
 
                         <section className="w-full grid grid-cols-2 gap-4 bg-[#111111] pt-6 px-3">
                             {loading ? (
-                                <div className="w-full h-[58vh] flex gap-6 flex-col justify-center items-center">
+                                <div className="w-[100vw] h-[58vh] flex gap-6 flex-col justify-center items-center flex-wrap">
                                     <BallTriangle height={100} width={100} radius={5} color="#4fa94d" ariaLabel="ball-triangle-loading" visible={true} />
                                     <p className="font-semibold tracking-wider">Loading...</p>
                                 </div>
                             ) : (
-
-                                movies.map((movie) => (
-                                    <div key={movie._id} className="flex flex-col justify-center items-center gap-3 w-full overflow-hidden h-fit">
-                                        <div
-                                            className="border-4 rounded-lg cursor-pointer"
-                                            style={{
-                                                borderImage: "linear-gradient(to right, orange, green) 1",
-                                                borderImageSlice: 1,
-                                            }}
-                                        >
-                                            <div className="w-full" style={{ position: 'relative', height: 'auto' }}>
-                                                <img
-                                                    src={movie.featuredImage}
-                                                    alt="Movie"
-                                                    width={600}
-                                                    height={400}
-                                                />
+                                <>
+                                    {movies.slice(0, 8).map((movie) => (
+                                        <div key={movie._id} className="flex flex-col justify-center items-center gap-3 w-full overflow-hidden h-fit">
+                                            <div
+                                                className="border-4 rounded-lg cursor-pointer"
+                                                style={{
+                                                    borderImage: "linear-gradient(to right, orange, green) 1",
+                                                    borderImageSlice: 1,
+                                                }}
+                                            >
+                                                <div className="w-full" style={{ position: 'relative', height: 'auto' }}>
+                                                    <img
+                                                        src={movie.featuredImage}
+                                                        alt="Movie"
+                                                        width={600}
+                                                        height={400}
+                                                    />
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <a href={`/movies/${movie.slug}`} className="w-full text-[0.7rem] text-center hover:text-red-600" >
-                                            {movie.title}
-                                        </a>
+                                            <a href={`/movies/${movie.slug}`} className="w-full text-[0.7rem] text-center hover:text-red-600" >
+                                                {movie.title}
+                                            </a>
+                                        </div>
+                                    ))
+                                    }
+
+                                    <div className='border-4 rounded-lg cursor-pointer flex justify-center items-center '
+                                        style={{
+                                            borderImage: "linear-gradient(to right, orange, green) 1",
+                                            borderImageSlice: 1,
+                                        }}
+                                    >
+                                        <VeriticalBannerAdShort />
                                     </div>
-                                ))
+
+
+                                    {movies.slice(8, 20).map((movie) => (
+                                        <div key={movie._id} className="flex flex-col justify-center items-center gap-3 w-full overflow-hidden h-fit">
+                                            <div
+                                                className="border-4 rounded-lg cursor-pointer"
+                                                style={{
+                                                    borderImage: "linear-gradient(to right, orange, green) 1",
+                                                    borderImageSlice: 1,
+                                                }}
+                                            >
+                                                <div className="w-full" style={{ position: 'relative', height: 'auto' }}>
+                                                    <img
+                                                        src={movie.featuredImage}
+                                                        alt="Movie"
+                                                        width={600}
+                                                        height={400}
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <a href={`/movies/${movie.slug}`} className="w-full text-[0.7rem] text-center hover:text-red-600" >
+                                                {movie.title}
+                                            </a>
+                                        </div>
+                                    ))
+                                    }
+
+                                </>
 
 
                             )}
@@ -139,22 +183,26 @@ const Home = () => {
 
                         </section>
 
-
+                        <div className='bg-[#111111] w-full flex justify-center items-center'>
+                            <VeriticalBannerAdShort />
+                        </div>
 
                         <section className="w-full gap-3 bg-[#111111] pt-6 h-fit p-3 pb-6 flex justify-center items-center">
-                            <PaginationBar page={page} moviesLength={movies.length} />
+                            {!loading && <PaginationBar page={page} moviesLength={movies.length} />}
                         </section>
 
 
 
                     </>
                 ) : (
-                    <main style={{ background: "url('/bg.webp')", backgroundRepeat: "repeat" }} className='w-screen h-fit flex justify-center items-start'>
+                    <main style={{ background: "url('/bg.webp')", backgroundRepeat: "repeat" }} className='w-screen h-fit flex flex-col justify-center items-center'>
                         <main className='w-[55vw]'>
                             <Navbar />
                             <Header />
-
                             <section className='w-[55vw] grid grid-cols-4 gap-3 bg-[#111111] pt-6 h-fit p-3'>
+                                <div className='absolute left-0 bottom-0'>
+                                    <VeriticalBannerAdLong />
+                                </div>
                                 {
                                     loading ? (
                                         <div className='w-[53.5vw] h-[58vh] flex gap-6 flex-col justify-center items-center'>
@@ -170,7 +218,40 @@ const Home = () => {
                                         </div>
                                     ) : (
                                         <>
-                                            {movies.map((movie) => (
+                                            {movies.slice(0, 8).map((movie) => (
+                                                <div key={movie._id} className='flex flex-col justify-center items-center gap-3 w-full overflow-hidden h-fit'>
+                                                    <div
+                                                        className="border-4 rounded-lg cursor-pointer"
+                                                        style={{
+                                                            borderImage: "linear-gradient(to right, orange, green) 1",
+                                                            borderImageSlice: 1,
+                                                        }}
+                                                    >
+                                                        <a href={`/movies/${movie.slug}`}>
+                                                            <img
+                                                                src={movie.featuredImage}
+                                                                alt="Logo"
+                                                                width={180}
+                                                                height={100}
+                                                                layout="responsive"
+                                                            />
+                                                        </a>
+                                                    </div>
+
+                                                    <a href={`/movies/${movie.slug}`} target='_blank' rel='noreferrer' className='w-[175px] text-[0.7rem] text-center hover:text-red-600' >
+                                                        {movie.title}
+                                                    </a>
+                                                </div>
+                                            ))}
+                                            <div className='border-4 rounded-lg cursor-pointer flex justify-center items-center '
+                                                style={{
+                                                    borderImage: "linear-gradient(to right, orange, green) 1",
+                                                    borderImageSlice: 1,
+                                                }}
+                                            >
+                                                <VeriticalBannerAdShort />
+                                            </div>
+                                            {movies.slice(8, 20).map((movie) => (
                                                 <div key={movie._id} className='flex flex-col justify-center items-center gap-3 w-full overflow-hidden h-fit'>
                                                     <div
                                                         className="border-4 rounded-lg cursor-pointer"
@@ -196,14 +277,17 @@ const Home = () => {
                                                 </div>
                                             ))}
 
+
                                         </>
+
                                     )
                                 }
                             </section>
 
 
 
-                            <PaginationBar page={page} moviesLength={movies.length} />
+
+                            {!loading && <PaginationBar page={page} moviesLength={movies.length} />}
                         </main>
 
                     </main>

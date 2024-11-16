@@ -4,40 +4,11 @@ import { TbRating18Plus } from "react-icons/tb";
 import { FaTelegram } from "react-icons/fa";
 import { ImEye } from "react-icons/im";
 import { useNavigate } from 'react-router-dom';
+import HorizontalBannerSmall from './ads/HorizontalBannerSmall';
 
 const Header = () => {
     const isMobile = useMobile();
     const [searchQuery, setSearchQuery] = useState('');
-    const navigate = useNavigate();
-    useEffect(() => {
-        // Create script element for the ad configuration
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.innerHTML = `
-          atOptions = {
-            key: "873d7f0d704aa05bcb1af655be9300da",
-            format: "iframe",
-            height: 250,
-            width: 300,
-            params: {}
-          };
-        `;
-
-        // Append the script to the ad div
-        document.getElementById('ad-container').appendChild(script);
-
-        // Create script element for loading the ad
-        const invokeScript = document.createElement('script');
-        invokeScript.type = 'text/javascript';
-        invokeScript.src = '//offspringthisscarcely.com/873d7f0d704aa05bcb1af655be9300da/invoke.js';
-
-        document.getElementById('ad-container').appendChild(invokeScript);
-
-        // Clean up when the component unmounts
-        return () => {
-            document.getElementById('ad-container').innerHTML = '';
-        };
-    }, []);
 
     return (
         <header>
@@ -182,7 +153,7 @@ const Header = () => {
                         <form className='mb-2 '
                             onSubmit={e => {
                                 e.preventDefault();
-                                navigate(`/search?search=${searchQuery}&page=1`);
+                                window.location.href = `https://allmovieshub.live/search?search=${searchQuery}&page=1`
                             }}
                         >
                             <input type="text"
@@ -331,10 +302,12 @@ const Header = () => {
 
                         {/* second search bar */}
 
+
+
                         <form
                             onSubmit={e => {
                                 e.preventDefault();
-                                navigate(`/search?search=${searchQuery}&page=1`);
+                                window.location.href = `https://allmovieshub.live/search?search=${searchQuery}&page=1`
                             }}
                             className='pt-4 w-full overflow-hidden bg-[#111111] pb-5'>
                             <input type="text"
@@ -349,10 +322,8 @@ const Header = () => {
                     </>
             }
 
-            {/* <!-- Ad 4 --> */}
-            <div className={`ad w-[${isMobile ? "100vw" : "55vw"}] flex justify-center items-center`} id="ad-container" >
-                {/* The ad script will be loaded here */}
-            </div>
+
+
         </header>
 
 

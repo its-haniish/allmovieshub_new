@@ -4,6 +4,9 @@ import Navbar from '../components/Navbar';
 import Header from '../components/Header';
 import useMobile from '../hooks/useMobile';
 import { BallTriangle } from 'react-loader-spinner';
+import SquareAd from '../components/ads/SquareAd';
+import VeriticalBannerAdLong from '../components/ads/VeriticalBannerAdLong';
+import HorizontalBannerSmall from '../components/ads/HorizontalBannerSmall';
 
 export default function Movie() {
   const isMobile = useMobile();
@@ -19,7 +22,6 @@ export default function Movie() {
       if (data) {
         setMovie(data); // Store the fetched movie data directly
       }
-      console.log(data);
     } catch (error) {
       console.error("Error fetching movie:", error);
     } finally {
@@ -55,26 +57,44 @@ export default function Movie() {
               {movie ? (
                 <>
                   <h1 className="text-xl font-semibold">{movie.title}</h1>
+                  <div className="text-white p-4 rounded-lg my-6">
+                    <div className="mt-2 ">
+                      <span className='text-red-200 '> {movie.title} </span>. We provide direct download links for best qualities and fast downloads. You can contact us on Telegram for the latest updates.
+                    </div>
+                    <p className="mt-4 ">
+                      <span className='text-red-400 font-semibold'>AllMoviesHub</span> is the best online platform for downloading Dual Audio <span className='text-blue-400 font-semibold'>[Hindi-English]</span> Series [300MB], Dual Audio <span className='text-purple-400 font-semibold'>[Hindi-English]</span> Movies Mkv <span className='text-orange-400 font-semibold'>[1080]</span>, Hindi Dubbed Movies Mkv <span className='text-aqua-400 font-semibold'>[720]</span>. We provide direct <span className='text-green-400 font-semibold'>G-Drive</span> download links for fast and secure downloading. Click on the download button below and follow the steps to start downloading.
+                    </p>
+                  </div>
                   <img src={movie.featuredImage} alt={movie.title} className="w-full h-auto my-4" />
-                  <p className="text-sm text-gray-400 mb-3">{movie.synopsis}</p>
+
+                  {
+                    movie.synopsis !== "No synopsis available" &&
+                    <h2 className='font-bold text-xl text-yellow-400 text-center'>Synopsis:</h2>
+                  }
+                  <p className="text-sm text-gray-400 mb-3">{movie?.synopsis === "No synopsis available" ? movie.title : movie.synopsis}</p>
                   <hr />
-                  <p><strong className='text-yellow-400'>Director:</strong> {movie.director}</p>
+                  <p ><strong className='text-yellow-400'>Director:</strong> {movie.director}</p>
                   <hr />
-                  <p><strong className='text-yellow-400'>Genres:</strong> {movie.genres}</p>
+                  <p ><strong className='text-yellow-400'>Genres:</strong> {movie.genres}</p>
                   <hr />
-                  <p><strong className='text-yellow-400'>Release Year:</strong> {movie.releaseYear}</p>
+                  <p ><strong className='text-yellow-400'>Release Year:</strong> {movie.releaseYear}</p>
                   <hr />
-                  <p><strong className='text-yellow-400'>IMDB Rating:</strong> {movie.imdbRating}</p>
+                  <p ><strong className='text-yellow-400'>IMDB Rating:</strong> {movie.imdbRating}</p>
                   <hr />
-                  <p><strong className='text-yellow-400'>Language:</strong> {movie.language}</p>
+                  <p ><strong className='text-yellow-400'>Language:</strong> {movie.language}</p>
                   <hr />
-                  <p><strong className='text-yellow-400'>File Size:</strong> {movie.fileSize}</p>
+                  <p ><strong className='text-yellow-400'>File Size:</strong> {movie.fileSize}</p>
                   <hr />
-                  <p><strong className='text-yellow-400'>Quality:</strong> {movie.quality}</p>
+                  <p ><strong className='text-yellow-400'>Quality:</strong> {movie.quality}</p>
                   <hr />
-                  <p><strong className='text-yellow-400'>Stars:</strong> {movie.starCast}</p>
+                  <p ><strong className='text-yellow-400'>Stars:</strong> {movie.starCast}</p>
                   <hr />
                   <img src={movie.image} alt={movie.title} className="w-full h-auto my-4 mx-auto" />
+
+                  {/* sqaure ad */}
+                  <div className='flex justify-center items-center'>
+                    <SquareAd />
+                  </div>
 
                   {/* Download Links */}
                   <div className="mt-6">
@@ -112,6 +132,10 @@ export default function Movie() {
           <main className="w-[55vw]">
             <Navbar />
             <Header />
+            <div className='absolute left-0 bottom-0'>
+              <VeriticalBannerAdLong />
+            </div>
+
             <section className="w-[55vw] grid grid-cols-4 gap-3 bg-[#111111] pt-6 h-fit p-3">
               {loading ? (
                 <div className="w-[53.5vw] h-[58vh] flex gap-6 flex-col justify-center items-center">
@@ -122,42 +146,53 @@ export default function Movie() {
                 <div className="col-span-4">
                   <h1 className="text-2xl font-semibold">{movie.title}</h1>
                   <div className="text-white p-4 rounded-lg my-6">
-                    <div className="mt-2 text-lg">
-                      <span className='text-red-200'> {movie.title} </span>. We provide direct download links for best qualities and fast downloads. You can contact us on Telegram for the latest updates.
+                    <div className="mt-2 text-[0.7rem]">
+                      <span className='text-red-200 text-[0.7rem]'> {movie.title} </span>. We provide direct download links for best qualities and fast downloads. You can contact us on Telegram for the latest updates.
                     </div>
-                    <p className="mt-4 text-base">
+                    <div className='flex justify-center items-center bg-[#111111]'>
+                      <HorizontalBannerSmall />
+                    </div>
+
+                    <p className="mt-4 text-[0.7rem]">
                       <span className='text-red-400 font-semibold'>AllMoviesHub</span> is the best online platform for downloading Dual Audio <span className='text-blue-400 font-semibold'>[Hindi-English]</span> Series [300MB], Dual Audio <span className='text-purple-400 font-semibold'>[Hindi-English]</span> Movies Mkv <span className='text-orange-400 font-semibold'>[1080]</span>, Hindi Dubbed Movies Mkv <span className='text-aqua-400 font-semibold'>[720]</span>. We provide direct <span className='text-green-400 font-semibold'>G-Drive</span> download links for fast and secure downloading. Click on the download button below and follow the steps to start downloading.
                     </p>
                   </div>
-                  <img src={movie.featuredImage} alt={movie.title} className="w-[60%] h-auto my-4 mx-auto" />
-                  <p className="text-sm text-gray-400">{movie.synopsis}</p>
+                  <img src={movie.featuredImage} alt={movie.title} className="w-[40%] h-auto my-4 mx-auto" />
+                  {
+                    movie.synopsis !== "No synopsis available" &&
+                    <h2 className='mt-2 font-bold  text-center text-yellow-400 my-4 text-[1rem]'>Synopsis:</h2>
+                  }
+                  <p className="text-sm text-gray-400">{movie?.synopsis === "No synopsis available" ? movie.title : movie.synopsis}</p>
                   <div className="mt-4">
                     <hr className='my-4' />
-                    <p><strong className='text-yellow-400'>Director:</strong> {movie.director}</p>
+                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>Director:</strong> {movie.director}</p>
                     <hr className='my-4' />
-                    <p><strong className='text-yellow-400'>Genres:</strong> {movie.genres}</p>
+                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>Genres:</strong> {movie.genres}</p>
                     <hr className='my-4' />
-                    <p><strong className='text-yellow-400'>Release Year:</strong> {movie.releaseYear}</p>
+                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>Release Year:</strong> {movie.releaseYear}</p>
                     <hr className='my-4' />
-                    <p><strong className='text-yellow-400'>IMDB Rating:</strong> {movie.imdbRating}</p>
+                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>IMDB Rating:</strong> {movie.imdbRating}</p>
                     <hr className='my-4' />
-                    <p><strong className='text-yellow-400'>Language:</strong> {movie.language}</p>
+                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>Language:</strong> {movie.language}</p>
                     <hr className='my-4' />
-                    <p><strong className='text-yellow-400'>File Size:</strong> {movie.fileSize}</p>
+                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>File Size:</strong> {movie.fileSize}</p>
                     <hr className='my-4' />
-                    <p><strong className='text-yellow-400'>Quality:</strong> {movie.quality}</p>
+                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>Quality:</strong> {movie.quality}</p>
                     <hr className='my-4' />
-                    <p><strong className='text-yellow-400'>Stars:</strong> {movie.starCast}</p>
+                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>Stars:</strong> {movie.starCast}</p>
                     <hr className='my-4' />
                   </div>
                   <div>
-                    <h2 className='mt-2 font-bold text-2xl text-center text-yellow-400 my-4'>ScreenShots:</h2>
-                    <img src={movie.image} alt={movie.title} className="w-full h-auto my-4 mx-auto" />
+                    <h2 className='mt-2 font-bold  text-center text-yellow-400 my-4 text-[1rem]'>ScreenShots:</h2>
+                    <img src={movie.image} alt={movie.title} className="w-[50%] h-auto my-4 mx-auto" />
                   </div>
-
+                  {/* sqaure ad */}
+                  <div className='flex justify-center items-center'>
+                    <SquareAd />
+                  </div>
                   {/* Download Links */}
                   <div className="my-6">
-                    <h3 className="font-bold text-xl text-yellow-400 text-center my-4">Download Links:</h3>
+                    <h3 className="font-bold text-yellow-400 text-center my-4 text-[1rem]">Download Links:</h3>
                     {movie.downloadLinks
                       .filter(link => link.link && link.type)
                       .map((link, index) => {
@@ -168,7 +203,7 @@ export default function Movie() {
                           <div key={index} className="my-4 text-center ">
                             <a
                               href={link.link}
-                              className={`${colorClass} underline `}
+                              className={`${colorClass} underline text-[0.7rem]`}
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -182,7 +217,10 @@ export default function Movie() {
                   </div>
                 </div>
               ) : (
-                <p>No movie found for slug: {slug}</p>
+                <>
+
+                  <p>No movie found for slug: {slug}</p>
+                </>
               )}
             </section>
           </main>

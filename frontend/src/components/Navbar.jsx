@@ -44,7 +44,7 @@ const Navbar = () => {
                             <motion.form
                                 onSubmit={e => {
                                     e.preventDefault();
-                                    navigate(`/search?search=${searchQuery}&page=1`);
+                                    window.location.href = `https://allmovieshub.live/search?search=${searchQuery}&page=1`
                                 }}
                                 className='absolute w-screen flex bg-black mt-2'
                                 initial="hidden"
@@ -90,7 +90,8 @@ const Navbar = () => {
                             <form className='h-[3rem] bg-[#116862] flex justify-center items-center'
                                 onSubmit={e => {
                                     e.preventDefault();
-                                    navigate(`/search?search=${searchQuery}&page=1`);
+                                    // navigate(`/search?search=${searchQuery}&page=1`);
+                                    window.location.href = `https://allmovieshub.live/search?search=${searchQuery}&page=1`
                                 }}
                             >
                                 <input type="text"
