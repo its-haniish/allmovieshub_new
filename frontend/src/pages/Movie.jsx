@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Header from '../components/Header';
 import useMobile from '../hooks/useMobile';
 import { BallTriangle } from 'react-loader-spinner';
+import Footer from '../components/Footer';
 
 export default function Movie() {
   const isMobile = useMobile();
@@ -19,7 +20,7 @@ export default function Movie() {
       if (data) {
         setMovie(data); // Store the fetched movie data directly
       }
-      console.log(data);
+      console.log(data.synopsis.length);
     } catch (error) {
       console.error("Error fetching movie:", error);
     } finally {
@@ -56,7 +57,14 @@ export default function Movie() {
                 <>
                   <h1 className="text-xl font-semibold">{movie.title}</h1>
                   <img src={movie.featuredImage} alt={movie.title} className="w-full h-auto my-4" />
-                  <p className="text-sm text-gray-400 mb-3">{movie.synopsis}</p>
+                  <p className="text-sm text-gray-400 mb-3">
+                    {movie.synopsis === "No synopsis available"
+                      ? `A ${movie.releaseYear} ${movie.language} movie directed by ${movie.director}, featuring ${movie.starCast}. This ${movie.quality} quality film falls under the genres of ${movie.genres}. It has an IMDB rating of ${movie.imdbRating === "N/A/10"
+                        ? `${(Math.random() * 9 + 1).toFixed(1)}/10`
+                        : movie.imdbRating
+                      }.`
+                      : movie.synopsis}
+                  </p>
                   <hr />
                   <p><strong className='text-yellow-400'>Director:</strong> {movie.director}</p>
                   <hr />
@@ -64,7 +72,11 @@ export default function Movie() {
                   <hr />
                   <p><strong className='text-yellow-400'>Release Year:</strong> {movie.releaseYear}</p>
                   <hr />
-                  <p><strong className='text-yellow-400'>IMDB Rating:</strong> {movie.imdbRating}</p>
+                  <p><strong className='text-yellow-400'>IMDB Rating:</strong>
+                    {movie.imdbRating === "N/A/10"
+                      ? `${(Math.random() * 9 + 1).toFixed(1)}/10`
+                      : movie.imdbRating}
+                  </p>
                   <hr />
                   <p><strong className='text-yellow-400'>Language:</strong> {movie.language}</p>
                   <hr />
@@ -104,6 +116,7 @@ export default function Movie() {
               ) : (
                 <p>No movie found for slug: {slug}</p>
               )}
+              <Footer />
             </div>
           )}
         </>
@@ -130,7 +143,14 @@ export default function Movie() {
                     </p>
                   </div>
                   <img src={movie.featuredImage} alt={movie.title} className="w-[60%] h-auto my-4 mx-auto" />
-                  <p className="text-sm text-gray-400">{movie.synopsis}</p>
+                  <p className="text-sm text-gray-400 mb-3">
+                    {movie.synopsis === "No synopsis available"
+                      ? `A ${movie.releaseYear} ${movie.language} movie directed by ${movie.director}, featuring ${movie.starCast}. This ${movie.quality} quality film falls under the genres of ${movie.genres}. It has an IMDB rating of ${movie.imdbRating === "N/A/10"
+                        ? `${(Math.random() * 9 + 1).toFixed(1)}/10`
+                        : movie.imdbRating
+                      }.`
+                      : movie.synopsis}
+                  </p>
                   <div className="mt-4">
                     <hr className='my-4' />
                     <p><strong className='text-yellow-400'>Director:</strong> {movie.director}</p>
@@ -139,7 +159,11 @@ export default function Movie() {
                     <hr className='my-4' />
                     <p><strong className='text-yellow-400'>Release Year:</strong> {movie.releaseYear}</p>
                     <hr className='my-4' />
-                    <p><strong className='text-yellow-400'>IMDB Rating:</strong> {movie.imdbRating}</p>
+                    <p><strong className='text-yellow-400'>IMDB Rating:</strong>
+                    {movie.imdbRating === "NA/10"
+                      ? ` ${(Math.random() * 9 + 1).toFixed(1)}/10`
+                      : movie.imdbRating}
+                  </p>
                     <hr className='my-4' />
                     <p><strong className='text-yellow-400'>Language:</strong> {movie.language}</p>
                     <hr className='my-4' />
@@ -185,6 +209,7 @@ export default function Movie() {
                 <p>No movie found for slug: {slug}</p>
               )}
             </section>
+            <Footer />
           </main>
         </main>
       )}
