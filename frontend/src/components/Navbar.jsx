@@ -36,7 +36,7 @@ const Navbar = () => {
                         </nav>
 
                         <h1 className='px-4 w-screen text-center pt-3 bg-none'>
-                            Allmovieshub is the best platform to download 300mb Movies, 480p Movies, 720p Movies, Hindi Dubbed Series, 1080p Movies and Tv Series. Subtitles are also available in Dual Audio (English and Hindi).
+                            Download 300mb Movies, 480p Movies, 720p Movies, AllHDMovies &amp; Latest Netflix, Cw and lots more TV Series in Dual Audio (English and Hindi) available in Google Drive Link.
                         </h1>
 
                         {/* Animated search bar */}
@@ -78,7 +78,7 @@ const Navbar = () => {
                             </Link>
                         </div>
                         <h1 className='px-4 w-[55vw] text-center py-3 bg-[#111111]'>
-                            Allmovieshub is the best platform to download 300mb Movies, 480p Movies, 720p Movies, Hindi Dubbed Series, 1080p Movies and Tv Series. Subtitles are also available in Dual Audio (English and Hindi).
+                            Download 300mb Movies, 480p Movies, 720p Movies, AllHDMovies &amp; Latest Netflix, Cw and lots more TV Series in Dual Audio (English and Hindi) available in Google Drive Link.
                         </h1>
                         <div className='bg-[#13736D] flex items-center justify-between h-fit'>
                             <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>HOME</a>
