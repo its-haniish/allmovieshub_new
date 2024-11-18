@@ -35,10 +35,6 @@ const Navbar = () => {
                             <HiSearch size={30} color='white' onClick={() => setShowSearch(!showSearch)} />
                         </nav>
 
-                        <h1 className='px-4 w-screen text-center pt-3 bg-none'>
-                            Download 300mb Movies, 480p Movies, 720p Movies, AllHDMovies &amp; Latest Netflix, Cw and lots more TV Series in Dual Audio (English and Hindi) available in Google Drive Link.
-                        </h1>
-
                         {/* Animated search bar */}
                         {showSearch && (
                             <motion.form
@@ -46,7 +42,7 @@ const Navbar = () => {
                                     e.preventDefault();
                                     window.location.href = `https://allmovieshub.live/search?search=${searchQuery}&page=1`
                                 }}
-                                className='absolute w-screen flex bg-black mt-2'
+                                className='absolute w-screen flex bg-black mt-2 '
                                 initial="hidden"
                                 animate="visible"
                                 exit="hidden"
@@ -64,6 +60,10 @@ const Navbar = () => {
                                 </button>
                             </motion.form>
                         )}
+
+                        <h1 className='px-4 w-screen text-center pt-3 bg-none'>
+                            Download 300mb Movies, 480p Movies, 720p Movies, AllHDMovies &amp; Latest Netflix, Cw and lots more TV Series in Dual Audio (English and Hindi) available in Google Drive Link.
+                        </h1>
                     </>
                     :
                     <nav>

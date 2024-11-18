@@ -132,7 +132,7 @@ const Home = () => {
                                                 </div>
                                             </div>
 
-                                            <a href={`/movies/${movie.slug}`} className="w-full text-[0.7rem] text-center hover:text-red-600" >
+                                            <a href={`/movies/${movie.slug}`} className="w-full text-[0.7rem] text-center focus:text-red-600" >
                                                 {movie.title}
                                             </a>
                                         </div>
@@ -168,7 +168,7 @@ const Home = () => {
                                                 </div>
                                             </div>
 
-                                            <a href={`/movies/${movie.slug}`} className="w-full text-[0.7rem] text-center hover:text-red-600" >
+                                            <a href={`/movies/${movie.slug}`} className="w-full text-[0.7rem] text-center focus:text-red-600" >
                                                 {movie.title}
                                             </a>
                                         </div>
@@ -238,7 +238,7 @@ const Home = () => {
                                                         </a>
                                                     </div>
 
-                                                    <a href={`/movies/${movie.slug}`} target='_blank' rel='noreferrer' className='w-[175px] text-[0.7rem] text-center hover:text-red-600' >
+                                                    <a href={`/movies/${movie.slug}`} target='_blank' rel='noreferrer' className='w-[175px] text-[0.7rem] text-center focus:text-red-600' >
                                                         {movie.title}
                                                     </a>
                                                 </div>
@@ -271,7 +271,7 @@ const Home = () => {
                                                         </a>
                                                     </div>
 
-                                                    <a href={`/movies/${movie.slug}`} target='_blank' rel='noreferrer' className='w-[175px] text-[0.7rem] text-center hover:text-red-600' >
+                                                    <a href={`/movies/${movie.slug}`} target='_blank' rel='noreferrer' className='w-[175px] text-[0.7rem] text-center focus:text-red-600' >
                                                         {movie.title}
                                                     </a>
                                                 </div>
