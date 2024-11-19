@@ -132,7 +132,7 @@ const Home = () => {
                                                 </div>
                                             </div>
 
-                                            <a href={`/movies/${movie.slug}`} className="w-full text-[0.7rem] text-center focus:text-red-600" >
+                                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className="w-full text-[0.7rem] text-center focus:text-red-600" >
                                                 {movie.title}
                                             </a>
                                         </div>
@@ -168,7 +168,7 @@ const Home = () => {
                                                 </div>
                                             </div>
 
-                                            <a href={`/movies/${movie.slug}`} className="w-full text-[0.7rem] text-center focus:text-red-600" >
+                                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className="w-full text-[0.7rem] text-center focus:text-red-600" >
                                                 {movie.title}
                                             </a>
                                         </div>
@@ -227,7 +227,7 @@ const Home = () => {
                                                             borderImageSlice: 1,
                                                         }}
                                                     >
-                                                        <a href={`/movies/${movie.slug}`}>
+                                                        <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d">
                                                             <img
                                                                 src={movie.featuredImage}
                                                                 alt="Logo"
@@ -238,7 +238,7 @@ const Home = () => {
                                                         </a>
                                                     </div>
 
-                                                    <a href={`/movies/${movie.slug}`} target='_blank' rel='noreferrer' className='w-[175px] text-[0.7rem] text-center focus:text-red-600' >
+                                                    <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" target='_blank' rel='noreferrer' className='w-[175px] text-[0.7rem] text-center focus:text-red-600' >
                                                         {movie.title}
                                                     </a>
                                                 </div>
@@ -260,7 +260,7 @@ const Home = () => {
                                                             borderImageSlice: 1,
                                                         }}
                                                     >
-                                                        <a href={`/movies/${movie.slug}`}>
+                                                        <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d">
                                                             <img
                                                                 src={movie.featuredImage}
                                                                 alt="Logo"
@@ -271,7 +271,7 @@ const Home = () => {
                                                         </a>
                                                     </div>
 
-                                                    <a href={`/movies/${movie.slug}`} target='_blank' rel='noreferrer' className='w-[175px] text-[0.7rem] text-center focus:text-red-600' >
+                                                    <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" target='_blank' rel='noreferrer' className='w-[175px] text-[0.7rem] text-center focus:text-red-600' >
                                                         {movie.title}
                                                     </a>
                                                 </div>
