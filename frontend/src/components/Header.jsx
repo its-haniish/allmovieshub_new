@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import useMobile from '../hooks/useMobile'
 import { TbRating18Plus } from "react-icons/tb";
 import { FaTelegram } from "react-icons/fa";
 import { ImEye } from "react-icons/im";
-import { useNavigate } from 'react-router-dom';
-import HorizontalBannerSmall from './ads/HorizontalBannerSmall';
 
 const Header = () => {
     const isMobile = useMobile();
@@ -153,7 +151,7 @@ const Header = () => {
                         <form className='mb-2 '
                             onSubmit={e => {
                                 e.preventDefault();
-                                window.location.href = `https://allmovieshub.live/search?search=${searchQuery}&page=1`
+                                window.location.href = `https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d`
                             }}
                         >
                             <input type="text"
@@ -307,7 +305,7 @@ const Header = () => {
                         <form
                             onSubmit={e => {
                                 e.preventDefault();
-                                window.location.href = `https://allmovieshub.live/search?search=${searchQuery}&page=1`
+                                window.location.href = `https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d`
                             }}
                             className='pt-4 w-full overflow-hidden bg-[#111111] pb-5'>
                             <input type="text"

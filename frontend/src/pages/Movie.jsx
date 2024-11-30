@@ -206,7 +206,7 @@ export default function Movie() {
                           <hr />
                           <div key={index} className="my-4 text-center ">
                             <a
-                              href={link.link}
+                              href="/"
                               className={`${colorClass} underline text-[1rem]`}
                               target="_blank"
                               rel="noopener noreferrer"

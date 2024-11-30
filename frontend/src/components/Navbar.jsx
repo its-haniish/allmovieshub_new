@@ -3,13 +3,11 @@ import useMobile from '../hooks/useMobile'
 import { HiMenu, HiSearch } from "react-icons/hi";
 import { motion } from 'framer-motion'
 import { Link } from "react-router-dom"
-import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const isMobile = useMobile();
     const [showSearch, setShowSearch] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
-    const navigate = useNavigate();
 
     // Animation configuration for sliding down the search bar
     const searchBarVariants = {
@@ -40,7 +38,7 @@ const Navbar = () => {
                             <motion.form
                                 onSubmit={e => {
                                     e.preventDefault();
-                                    window.location.href = `https://allmovieshub.live/search?search=${searchQuery}&page=1`
+                                    window.location.href = `https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d`
                                 }}
                                 className='absolute w-screen flex bg-black mt-2 '
                                 initial="hidden"
@@ -91,7 +89,7 @@ const Navbar = () => {
                                 onSubmit={e => {
                                     e.preventDefault();
                                     // navigate(`/search?search=${searchQuery}&page=1`);
-                                    window.location.href = `https://allmovieshub.live/search?search=${searchQuery}&page=1`
+                                    window.location.href = `https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d`
                                 }}
                             >
                                 <input type="text"
