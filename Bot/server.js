@@ -7,7 +7,7 @@ const main = async () => {
     let browser;
     try {
         browser = await puppeteer.launch({
-            headless: true,
+            headless: false,
             args: [
                 '--no-sandbox',
                 '--disable-setuid-sandbox',
@@ -18,15 +18,7 @@ const main = async () => {
         const page = await browser.newPage();
 
         // Find the existing page document
-        const pageInfo = await Pages.findOne({});
 
-        if (pageInfo && pageInfo.pageUrl) {
-            console.log(`Resuming from last scraped page: ${pageInfo.pageUrl}`);
-            await page.goto(pageInfo.pageUrl);  // Resume from the last scraped URL
-        } else {
-            console.log("No previous page found, starting from homepage.");
-            await page.goto('https://allmovieshub.pl/');  // Default URL if not found
-        }
 
         // Scrape the page for posts
         const scrapePage = async () => {

@@ -81,10 +81,6 @@ const pageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  pageNo: {
-    type: Number,
-    default: 0,
-  }
 });
 
 const Pages = mongoose.model('Page', pageSchema);

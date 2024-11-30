@@ -8,7 +8,7 @@ import connectDB from './utils/connectDB';
 dotenv.config();
 
 const app: Application = express();
-const PORT = process.env.PORT || 8084;
+const PORT = process.env.PORT || 8080;
 
 // Middleware
 app.use(express.json({ limit: '50mb' }));

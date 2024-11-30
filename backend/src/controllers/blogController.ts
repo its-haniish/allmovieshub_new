@@ -119,7 +119,7 @@ export const getMovieCards = async (req: Request, res: Response): Promise<void> 
     try {
         // Get the page number from query parameters or default to 1
         const page = parseInt(req.query.page as string, 10) || 1;
-        const limit = 20;
+        const limit = 19;
         const skip = (page - 1) * limit;
 
         // Fetch blogs with pagination and select only slug, title, and featuredImage fields

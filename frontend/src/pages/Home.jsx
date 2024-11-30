@@ -132,7 +132,7 @@ const Home = () => {
                                                 </div>
                                             </div>
 
-                                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className="w-full text-[0.7rem] text-center focus:text-red-600" >
+                                            <a href={`/${movie.slug}`} className="w-full text-[0.7rem] text-center focus:text-red-600" >
                                                 {movie.title}
                                             </a>
                                         </div>
@@ -149,7 +149,7 @@ const Home = () => {
                                     </div>
 
 
-                                    {movies.slice(8, 20).map((movie) => (
+                                    {movies.slice(8, 19).map((movie) => (
                                         <div key={movie._id} className="flex flex-col justify-center items-center gap-3 w-full overflow-hidden h-fit">
                                             <div
                                                 className="border-4 rounded-lg cursor-pointer"
@@ -168,7 +168,7 @@ const Home = () => {
                                                 </div>
                                             </div>
 
-                                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className="w-full text-[0.7rem] text-center focus:text-red-600" >
+                                            <a href={`/${movie.slug}`} className="w-full text-[0.7rem] text-center focus:text-red-600" >
                                                 {movie.title}
                                             </a>
                                         </div>
@@ -238,7 +238,7 @@ const Home = () => {
                                                         </a>
                                                     </div>
 
-                                                    <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" target='_blank' rel='noreferrer' className='w-[175px] text-[0.7rem] text-center focus:text-red-600' >
+                                                    <a href={`/${movie.slug}`} target='_blank' rel='noreferrer' className='w-[175px] text-[0.7rem] text-center focus:text-red-600' >
                                                         {movie.title}
                                                     </a>
                                                 </div>
@@ -251,7 +251,7 @@ const Home = () => {
                                             >
                                                 <VeriticalBannerAdShort />
                                             </div>
-                                            {movies.slice(8, 20).map((movie) => (
+                                            {movies.slice(8, 19).map((movie) => (
                                                 <div key={movie._id} className='flex flex-col justify-center items-center gap-3 w-full overflow-hidden h-fit'>
                                                     <div
                                                         className="border-4 rounded-lg cursor-pointer"
@@ -271,7 +271,7 @@ const Home = () => {
                                                         </a>
                                                     </div>
 
-                                                    <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" target='_blank' rel='noreferrer' className='w-[175px] text-[0.7rem] text-center focus:text-red-600' >
+                                                    <a href={`/${movie.slug}`} target='_blank' rel='noreferrer' className='w-[175px] text-[0.7rem] text-center focus:text-red-600' >
                                                         {movie.title}
                                                     </a>
                                                 </div>

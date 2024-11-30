@@ -29,6 +29,9 @@ export default function Footer() {
             isMobile ? (
                <div className='mt-4'>
                   <div className='p-2 gap-2 mb-2 mt-2'>
+                     <p className='text-center text-gray-400 text-xs'>AllMoviesHub features a diverse collection of web series. Users can find both recently released films and movies from different genres on the homepage. The website even offers 300MB Hindi movies for download and supports multiple regional languages like Telugu, Malayalam, Bengali, Hindi, Tamil, and more.
+
+                        However, it is important to note that AllMoviesHub operates illegally as it shares pirated content. The movies and shows available on this site are distributed without authorization from their copyright owners, making its use a violation of copyright laws.</p>
                      <p className='text-center text-gray-400 text-xs'>Copyright © 2024. Created by ❤️ AllMovieshub Team ❤️</p>
                   </div>
                   <hr />
@@ -41,6 +44,9 @@ export default function Footer() {
             ) : (
                <div>
                   <div className='text-center pt-4 p-2 gap-1 pb-4 bg-[#010101]'>
+                     <p className='text-center text-gray-400 text-xs'>AllMoviesHub features a diverse collection of web series. Users can find both recently released films and movies from different genres on the homepage. The website even offers 300MB Hindi movies for download and supports multiple regional languages like Telugu, Malayalam, Bengali, Hindi, Tamil, and more.
+
+                        However, it is important to note that AllMoviesHub operates illegally as it shares pirated content. The movies and shows available on this site are distributed without authorization from their copyright owners, making its use a violation of copyright laws.</p>
                      <p className='text-gray-400 text-sm'>Copyright © 2024. Created by ❤️ AllMovieshub Team ❤️</p>
                   </div>
                   <hr className='w-[90%] mx-auto' />

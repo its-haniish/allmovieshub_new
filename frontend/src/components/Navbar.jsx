@@ -62,7 +62,7 @@ const Navbar = () => {
                         )}
 
                         <h1 className='px-4 w-screen text-center pt-3 bg-none'>
-                            Download 300mb Movies, 480p Movies, 720p Movies, AllHDMovies &amp; Latest Netflix, Cw and lots more TV Series in Dual Audio (English and Hindi) available in Google Drive Link.
+                            AllMoviesHub is a platform that provides free access to a wide range of movies and TV shows, including content from Bollywood, Hollywood, South Indian cinema, and various other languages.
                         </h1>
                     </>
                     :
@@ -78,15 +78,15 @@ const Navbar = () => {
                             </Link>
                         </div>
                         <h1 className='px-4 w-[55vw] text-center py-3 bg-[#111111]'>
-                            Download 300mb Movies, 480p Movies, 720p Movies, AllHDMovies &amp; Latest Netflix, Cw and lots more TV Series in Dual Audio (English and Hindi) available in Google Drive Link.
+                            AllMoviesHub is a platform that provides free access to a wide range of movies and TV shows, including content from Bollywood, Hollywood, South Indian cinema, and various other languages.
                         </h1>
                         <div className='bg-[#13736D] flex items-center justify-between h-fit'>
-                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>HOME</a>
-                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>BOLLYWOOD MOVIES</a>
-                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>HOLLYWOOD HINDI DUBBED</a>
-                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>SOUTH HINDI DUBBED</a>
-                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>HINDI DUBBED MOVIES</a>
-                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.6rem] py-2 px-1 hover:bg-[#116862]'>WEB SERIES</a>
+                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.78em] py-2 px-1 hover:bg-[#116862]'>HOME</a>
+                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.8rem] py-2 px-1 hover:bg-[#116862]'>BOLLYWOOD MOVIES</a>
+                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.8rem] py-2 px-1 hover:bg-[#116862]'>HOLLYWOOD HINDI DUBBED</a>
+                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.8rem] py-2 px-1 hover:bg-[#116862]'>SOUTH HINDI DUBBED</a>
+                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.8rem] py-2 px-1 hover:bg-[#116862]'>HINDI DUBBED MOVIES</a>
+                            <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d" className='text-[0.8rem] py-2 px-1 hover:bg-[#116862]'>WEB SERIES</a>
                             <form className='h-[3rem] bg-[#116862] flex justify-center items-center'
                                 onSubmit={e => {
                                     e.preventDefault();
@@ -96,7 +96,7 @@ const Navbar = () => {
                             >
                                 <input type="text"
                                     placeholder='Search....'
-                                    className='bg-[#116862] outline-none h-full text-[0.6rem] placeholder:text-white px-2'
+                                    className='bg-[#116862] outline-none h-full text-[0.8rem] placeholder:text-white px-2'
                                     onChange={e => setSearchQuery(e.target.value)}
                                 />
                                 <button type='submit' className='bg-none border-none'>

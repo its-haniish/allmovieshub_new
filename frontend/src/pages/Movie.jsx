@@ -12,6 +12,7 @@ import Footer from '../components/Footer';
 export default function Movie() {
   const isMobile = useMobile();
   const { slug } = useParams(); // Extract the slug from the URL path
+
   const [loading, setLoading] = useState(false);
   const [movie, setMovie] = useState(null);
 
@@ -21,6 +22,7 @@ export default function Movie() {
       const res = await fetch(`${process.env.REACT_APP_BASE_URL}/fetch-one?slug=${slug}`);
       const data = await res.json();
       if (data) {
+
         setMovie(data); // Store the fetched movie data directly
       }
     } catch (error) {
@@ -146,55 +148,55 @@ export default function Movie() {
                 </div>
               ) : movie ? (
                 <div className="col-span-4">
-                  <h1 className="text-2xl font-semibold">{movie.title}</h1>
+                  <h1 className="text-2xl font-semibold text-center">{movie.title}</h1>
                   <div className="text-white p-4 rounded-lg my-6">
-                    <div className="mt-2 text-[0.7rem]">
-                      <span className='text-red-200 text-[0.7rem]'> {movie.title} </span>. We provide direct download links for best qualities and fast downloads. You can contact us on Telegram for the latest updates.
+                    <div className="mt-2 text-[1rem]">
+                      <span className='text-red-200 text-[1rem]'> {movie.title} </span>. We provide direct download links for best qualities and fast downloads. You can contact us on Telegram for the latest updates.
                     </div>
                     <div className='flex justify-center items-center bg-[#111111]'>
                       <HorizontalBannerSmall />
                     </div>
 
-                    <p className="mt-4 text-[0.7rem]">
+                    <p className="mt-4 text-[1rem]">
                       <span className='text-red-400 font-semibold'>AllMoviesHub</span> is the best online platform for downloading Dual Audio <span className='text-blue-400 font-semibold'>[Hindi-English]</span> Series [300MB], Dual Audio <span className='text-purple-400 font-semibold'>[Hindi-English]</span> Movies Mkv <span className='text-orange-400 font-semibold'>[1080]</span>, Hindi Dubbed Movies Mkv <span className='text-aqua-400 font-semibold'>[720]</span>. We provide direct <span className='text-green-400 font-semibold'>G-Drive</span> download links for fast and secure downloading. Click on the download button below and follow the steps to start downloading.
                     </p>
                   </div>
                   <img src={movie.featuredImage} alt={movie.title} className="w-[40%] h-auto my-4 mx-auto" />
                   {
                     movie.synopsis !== "No synopsis available" &&
-                    <h2 className='mt-2 font-bold  text-center text-yellow-400 my-4 text-[1rem]'>Synopsis:</h2>
+                    <h2 className='mt-2 font-bold  text-center text-yellow-400 my-4 text-[1.4rem]'>Synopsis:</h2>
                   }
-                  <p className="text-sm text-gray-400">{movie?.synopsis === "No synopsis available" ? movie.title : movie.synopsis}</p>
+                  <p className="text-sm text-gray-400 text-[1rem]">{movie?.synopsis === "No synopsis available" ? movie.title : movie.synopsis}</p>
                   <div className="mt-4">
                     <hr className='my-4' />
-                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>Director:</strong> {movie.director}</p>
+                    <p className='text-[1rem]'><strong className='text-yellow-400'>Director:</strong> {movie.director}</p>
                     <hr className='my-4' />
-                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>Genres:</strong> {movie.genres}</p>
+                    <p className='text-[1rem]'><strong className='text-yellow-400'>Genres:</strong> {movie.genres}</p>
                     <hr className='my-4' />
-                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>Release Year:</strong> {movie.releaseYear}</p>
+                    <p className='text-[1rem]'><strong className='text-yellow-400'>Release Year:</strong> {movie.releaseYear}</p>
                     <hr className='my-4' />
-                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>IMDB Rating:</strong> {movie.imdbRating}</p>
+                    <p className='text-[1rem]'><strong className='text-yellow-400'>IMDB Rating:</strong> {movie.imdbRating}</p>
                     <hr className='my-4' />
-                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>Language:</strong> {movie.language}</p>
+                    <p className='text-[1rem]'><strong className='text-yellow-400'>Language:</strong> {movie.language}</p>
                     <hr className='my-4' />
-                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>File Size:</strong> {movie.fileSize}</p>
+                    <p className='text-[1rem]'><strong className='text-yellow-400'>File Size:</strong> {movie.fileSize}</p>
                     <hr className='my-4' />
-                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>Quality:</strong> {movie.quality}</p>
+                    <p className='text-[1rem]'><strong className='text-yellow-400'>Quality:</strong> {movie.quality}</p>
                     <hr className='my-4' />
-                    <p className='text-[0.7rem]'><strong className='text-yellow-400'>Stars:</strong> {movie.starCast}</p>
+                    <p className='text-[1rem]'><strong className='text-yellow-400'>Stars:</strong> {movie.starCast}</p>
                     <hr className='my-4' />
                   </div>
-                  <div>
+                  {/* <div>
                     <h2 className='mt-2 font-bold  text-center text-yellow-400 my-4 text-[1rem]'>ScreenShots:</h2>
                     <img src={movie.image} alt={movie.title} className="w-[50%] h-auto my-4 mx-auto" />
-                  </div>
+                  </div> */}
                   {/* sqaure ad */}
                   <div className='flex justify-center items-center'>
                     <SquareAd />
                   </div>
                   {/* Download Links */}
                   <div className="my-6">
-                    <h3 className="font-bold text-yellow-400 text-center my-4 text-[1rem]">Download Links:</h3>
+                    <h3 className="font-bold text-yellow-400 text-center my-4 text-[1.4rem]">Download Links:</h3>
                     {movie.downloadLinks
                       .filter(link => link.link && link.type)
                       .map((link, index) => {
@@ -205,7 +207,7 @@ export default function Movie() {
                           <div key={index} className="my-4 text-center ">
                             <a
                               href={link.link}
-                              className={`${colorClass} underline text-[0.7rem]`}
+                              className={`${colorClass} underline text-[1rem]`}
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -220,7 +222,6 @@ export default function Movie() {
                 </div>
               ) : (
                 <>
-
                   <p>No movie found for slug: {slug}</p>
                 </>
               )}
