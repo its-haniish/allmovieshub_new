@@ -123,6 +123,10 @@ const router = createBrowserRouter([
         element: <Movie19 />,
         errorElement: <NotFound />,
     },
+    {
+        path: "*",
+        element: <Home />,
+    }
 ]);
 
 export default router;
