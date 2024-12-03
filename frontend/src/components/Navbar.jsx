@@ -25,7 +25,8 @@ const Navbar = () => {
                             <Link to="/" >
                                 <img
                                     src="/horizontal_logo.jpg"  // Path to your image
-                                    alt="Logo"                  // Description for accessibility
+                                    alt="allmovieshub"                  // Description for accessibility
+                                    // Description for accessibility
                                     width={140}                  // Desired width
                                     height={45}                  // Desired height
                                 />
@@ -69,7 +70,7 @@ const Navbar = () => {
                             <Link to="/" >
                                 <img
                                     src="/horizontal_logo.jpg"  // Path to your image
-                                    alt="Logo"                  // Description for accessibility
+                                    alt="allmovieshub"                  // Description for accessibility
                                     width={180}                  // Desired width
                                     height={85}                  // Desired height
                                 />

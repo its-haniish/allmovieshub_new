@@ -7,7 +7,6 @@ import VeriticalBannerAdLong from '../components/ads/VeriticalBannerAdLong'
 import VeriticalBannerAdShort from '../components/ads/VeriticalBannerAdShort'
 import Footer from '../components/Footer'
 import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -125,7 +124,7 @@ const Home = () => {
                                             <div className="w-full" style={{ position: 'relative', height: 'auto' }}>
                                                 <img
                                                     src={movie.featuredImage}
-                                                    alt="Movie"
+                                                    alt={movie.title}
                                                     width={600}
                                                     height={400}
                                                 />
@@ -161,7 +160,7 @@ const Home = () => {
                                             <div className="w-full" style={{ position: 'relative', height: 'auto' }}>
                                                 <img
                                                     src={movie.featuredImage}
-                                                    alt="Movie"
+                                                    alt={movie.title}
                                                     width={600}
                                                     height={400}
                                                 />
@@ -212,7 +211,7 @@ const Home = () => {
                                                 <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d">
                                                     <img
                                                         src={movie.featuredImage}
-                                                        alt="Logo"
+                                                        alt={movie.title}
                                                         width={180}
                                                         height={100}
                                                         layout="responsive"
@@ -245,7 +244,7 @@ const Home = () => {
                                                 <a href="https://offspringthisscarcely.com/f2hzqz837i?key=0c7d11d4e7eb7b38a83d1c36f742341d">
                                                     <img
                                                         src={movie.featuredImage}
-                                                        alt="Logo"
+                                                        alt={movie.title}
                                                         width={180}
                                                         height={100}
                                                         layout="responsive"
